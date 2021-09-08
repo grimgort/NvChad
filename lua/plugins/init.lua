@@ -423,4 +423,7 @@ use {
 use {'voldikss/vim-translator'}
 use{'airblade/vim-rooter'}
 use{'Shatur/neovim-cmake'}
+use {'sindrets/diffview.nvim'}
+use {'lambdalisue/gina.vim'}
+use {'mbbill/undotree'}
 end)

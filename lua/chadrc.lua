@@ -8,7 +8,7 @@ M.ui = {
    italic_comments = false,
 
    -- theme to be used, to see all available themes, open the theme switcher by <leader> + th
-   theme = "onedark",
+   theme = "uwu",
 
    -- theme toggler, toggle between two themes, see theme_toggleer mappings
    theme_toggler = {
@@ -135,32 +135,7 @@ M.mappings = {
 
    -- update nvchad from nvchad, chadness 101
    update_nvchad = "<leader>uu",
-   -- vim.api.nvim_set_keymap('n', '$', "<cmd>lua require'hop'.hint_words()<cr>", {}),
-   vim.api.nvim_set_keymap('n', 'e', ":HopChar1<cr>", {}),
-   vim.api.nvim_set_keymap('n', " cd", ":cd %:p:h<cr>", {}),
-   vim.api.nvim_set_keymap('n', " gf", ":Telescope git_files<cr>", {}),
-   vim.api.nvim_set_keymap('n', " ee", ":NvimTreeFocus<cr>", {}),
-   vim.api.nvim_set_keymap('n', " ef", ":NvimTreeFindFile<cr>", {}),
--- GIT mapping
--- GIT mapping
-   vim.api.nvim_set_keymap('n', " gm", ":Neogit<cr>", {}),
-   vim.api.nvim_set_keymap('n', " ge", ":Git commit<cr>", {}),
-   vim.api.nvim_set_keymap('n', " gg", ":Git grep -ie ", {}),
-   vim.api.nvim_set_keymap('n', " gx", ":Telescope live_grep<cr> ", {}),
-   vim.api.nvim_set_keymap('n', " gt", ":Git tag<cr> ", {}),
-   vim.api.nvim_set_keymap('n', " a", ":ClangdSwitchSourceHeader<cr> ", {}),
-    vim.api.nvim_set_keymap('n', " wx", ":only<cr> ", {}),
-   vim.api.nvim_set_keymap('n', " gz", ":Git branch<cr> ", {}),
--- local opts = {noremap = true}
--- local opts = {noremap = true}
-  -- vim.api.nvim_set_keymap( 't', '<esc>', "[[<C-\><C-n>]]", {})
---   vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
---   vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
---   vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
---   vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
---   vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
--- 
--- if you only want these mappings for toggle term use term://*toggleterm#* instead
+
 }
 
 -- all plugins related mappings
@@ -239,7 +214,26 @@ M.custom.mappings = {
    --    "<leader>cc",
    --    "gg0vG$d",
    -- },
-
+vim.api.nvim_set_keymap('n', " gy", ":Gina tag<cr> ", {}),
+vim.api.nvim_set_keymap('n', " wx", ":only<cr> ", {}),
+   vim.api.nvim_set_keymap('n', " gr", ":Gina branch<cr> ", {}),
+   vim.api.nvim_set_keymap('n', " gl", ":Gina log<cr> ", {}),
+   vim.api.nvim_set_keymap('n', " gp", ":Gina pull<cr> ", {}),
+   vim.api.nvim_set_keymap('n', " g*", ":Gina push<cr> ", {}),
+   vim.api.nvim_set_keymap('n', 'e', ":HopChar1<cr>", {}),
+   vim.api.nvim_set_keymap('n', " cd", ":cd %:p:h<cr>", {}),
+   vim.api.nvim_set_keymap('n', " gf", ":Telescope git_files<cr>", {}),
+   vim.api.nvim_set_keymap('n', " ee", ":NvimTreeFocus<cr>", {}),
+   vim.api.nvim_set_keymap('n', " ef", ":NvimTreeFindFile<cr>", {}),
+-- GIT mapping
+   vim.api.nvim_set_keymap('n', " gm", ":Neogit<cr>", {}),
+   vim.api.nvim_set_keymap('n', " ge", ":Git commit<cr>", {}),
+   vim.api.nvim_set_keymap('n', " gg", ":Git grep -ie ", {}),
+   vim.api.nvim_set_keymap('n', " gx", ":Telescope live_grep<cr> ", {}),
+   vim.api.nvim_set_keymap('n', " gt", ":Git tag<cr> ", {}),
+   vim.api.nvim_set_keymap('n', " a", ":ClangdSwitchSourceHeader<cr> ", {}),
+    vim.api.nvim_set_keymap('n', " wx", ":only<cr> ", {}),
+   vim.api.nvim_set_keymap('n', " gz", ":Git branch<cr> ", {}),
 }
 
 return M
