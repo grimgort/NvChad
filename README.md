@@ -15,7 +15,7 @@
 
 <div align="center">
 	
-[![Lua](https://img.shields.io/badge/Made%20with%20Lua-blueviolet.svg?style=for-the-badge&logo=lua)]()
+[![Lua](https://img.shields.io/badge/Made%20with%20Lua-blueviolet.svg?style=for-the-badge&logo=lua)](https://lua.org)
 	
 </div>
 
@@ -39,116 +39,127 @@
 	      
   </div>
 
-# Showcase
-<img src ="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/dashboard-nvim.png"><hr>
-<img src ="https://cdn.discordapp.com/attachments/610012460828852229/853933487295299584/unknown.png"><hr>
-<img src ="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/initialNvim1.png"><hr>
-<img src ="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/initialNvim.png"><hr>
+## Showcase
 
+<img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/dashboard-nvim.png"><hr>
+<img src="https://cdn.discordapp.com/attachments/610012460828852229/853933487295299584/unknown.png"><hr>
+<img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/initialNvim1.png"><hr>
+<img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/initialNvim.png"><hr>
 
-# Some theme showcases :D
+## Theme Showcase
+	
+<details><summary> <b>Images (Click to expand!)</b></summary>
 
 ![onedark](https://user-images.githubusercontent.com/59060246/130129880-59ab1ad5-9aa6-4f50-9ddd-d8dde0c16257.png)
 ![nord](https://user-images.githubusercontent.com/59060246/130129890-c01117df-ac3d-40dd-b95d-2681c2461bb4.png)
 ![gruvchad](https://user-images.githubusercontent.com/59060246/130129897-a68b1585-f42d-4325-8482-102dd2fe1e9e.png)
 ![everforest](https://user-images.githubusercontent.com/59060246/130129901-5e582f3e-b776-4d0c-9790-be5ae738b5a8.png)
 
-# Very Very Useful lua plugins used in my config
+</details>
 
-#### Lspkind-nvim
+## Very useful plugins used
 
-This tiny plugin adds vscode-like pictograms to neovim built-in lsp completion items:
+<details><summary> <b>Images (Click to expand!)</b></summary>
 
-<kbd><img src = "https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/lspkind.png"></kbd><hr>
+<h3> Nvim-tree.lua </h3>
 
-#### Nvim-tree.lua
+Fast file tree:
 
-fast file tree:
+<kbd><img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/nvimtree.png"></kbd><hr>
 
-<kbd><img src = "https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/nvimtree.png"></kbd><hr>
-
-### Telescope-nvim
+<h3> Telescope-nvim </h3>
 
 A fuzzy file finder, picker, sorter, previewer and much more:
-<kbd> <img src = "https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/tel.png"></kbd>
-<kbd> <img src = "https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/telmedia.png"></kbd><hr>
 
-### Indent-blankline.nvim
+<kbd><img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/nvimtree.png"></kbd><hr>
+<kbd><img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/tel.png"></kbd>
+<kbd><img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/telmedia.png"></kbd><hr>
 
-adds indentline:
-<kbd> <img src = "https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/blanklineNvim.png"></kbd>
+<h3> Indent-blankline.nvim </h3>
 
-### Galaxyline
+Adds indentline:
 
-fastest statusline plugin I've used so far:
-<kbd><img src = "https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/statusline.png"></kbd><hr>
+<kbd><img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/nvimtree.png"></kbd><hr>
+<kbd><img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/blanklineNvim.png"></kbd>
 
-### Nvim-bufferline.lua
+<h3> Feline.nvim  </h3>
 
-As a top tabline like thing which lets me handle tabs and buffers like switching , sorting and closing them etc.
-<kbd> <img src = "https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/bufferline.png"></kbd>
+Highly configurable statusline plugin:
 
-### Nvim-web-devicons
+<kbd><img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/nvimtree.png"></kbd><hr>
+<kbd><img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/statusline.png"></kbd><hr>
 
-Lua fork of vim devicons which lets me change icons of filetypes:
-<kbd> <img src = "https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/image.png"></kbd>
+<h3> Nvim-bufferline.lua </h3>
 
-### Nvim-treesitter
+Better tab implementation:
 
-Better syntax highlighting for programming languages ( NvChad by default comes with lua/bash treesitter parsers ).
+<kbd><img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/nvimtree.png"></kbd><hr>
+<kbd><img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/bufferline.png"></kbd>
 
-without / with Treesitter:
-<kbd> <img src = "https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/woTree.png"></kbd>
+<h3> Nvim-web-devicons </h3>
 
-# Credits
+Lua fork of Vim Devicons which offers more file icon customisability:
 
-- [Elianiva](https://github.com/elianiva) helped me with neovim lua related issues many times, NvChad wouldnt exist without his help at all!
-- @lorvethe for making NvChad logo!
+<kbd><img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/nvimtree.png"></kbd><hr>
+<kbd><img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/image.png"></kbd>
 
-# Features
+<h3> Nvim-treesitter </h3
 
-- File navigation with Nvimtree
-- Using plugins that are mouse friendly
-- Beautiful inbuilt themes
-- lazy loading 100% of plugins
-- managing tabs, buffers with bufferline
-- autosave
-- icons on nvimtree, telescope, bufferline/statusline and almost everywhere! with nvim-web-devicons
-- minimal status line (galaxyline)
-- gitsigns (colored bars for git in my config)
-- nvim-lspconfig for nvim-lsp configuration
-- lspInstall for installing lsp servers easily
-- nvim-compe for autocompletion
-- lspkind to show pictograms on autocompletion items
-- telescope for file finding, picking, previewing (files and even images)
-- nvim-treesitter for syntax highlighting
-- nvim-autopairs for autolosing braces and stuffs
-- neoformat for prettifying/formatting code
-- packer.nvim as package manager
-- indent-blankline.Nvim for indentlines
-- smooth scrolling
-- luasnip for snippet plugin and snip support from VSCode through vsnip supporting custom and predefined snips (friendly-snippets)
-- Distraction free modes (modes in which statusline, tabline etc. stuff get disabled so its just the text visible in the buffer similar to goyo.vim)
-- Code formatting/prettifying
-- gitsigns for git diffs
+Better syntax highlighting for programming languages (NvChad by default comes with Lua/bash treesitter parsers).
 
-# Bloat
+Without/with Treesitter:
+
+<kbd><img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/nvimtree.png"></kbd><hr>
+<kbd><img src="https://raw.githubusercontent.com/siduck76/dotfiles/master/rice%20flex/woTree.png"></kbd>
+
+</details>
+
+## Credits
+
+- [Elianiva](https://github.com/elianiva) helped me with NeoVim Lua related issues many times, NvChad wouldnt exist without his help at all.
+- @lorvethe for making the beautiful NvChad logo.
+
+## Features
+
+- Many beautiful themes to choose from.
+- Distraction free modes.
+- Fast plugin loading.
+- Smooth scrolling.
+- Autosaving.
+- File navigation with [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua).
+- Managing tabs, buffers with [bufferline.nvim](https://github.com/akinsho/bufferline.nvim).
+- Beautiful and configurable icons with [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons).
+- Pretty and functional statusline with [feline.nvim](https://github.com/Famiu/feline.nvim).
+- Git diffs and more with [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) .
+- NeoVim Lisp configuration with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig).
+- Easy Lisp server installation with [nvim-lspinstall](https://github.com/kabouzeid/nvim-lspinstall).
+- Autocompletion with [nvim-cmp](https://github.com/hrsh7th/nvim-cmp).
+- File searching, previewing image and text files and more with [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim).
+- Syntax highlighting with [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
+- Autoclosing braces and html tags with [nvim-autopairs](https://github.com/windwp/nvim-autopairs).
+- Formatting code with [neoformat](https://github.com/sbdchd/neoformat).
+- Indentlines with [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim).
+- Useful snippets with [LuaSnip](https://github.com/L3MON4D3/LuaSnip).
+
+## Bloat
 	
--  To all those who think this is probably bloated, sure it is. Bloat means different to everyone. NvChad has like 30 ~ plugins but that doesn't mean those plugins are compromising neovim's speed, snappiness, or making it slow. No matter how many plugins I'd add on NvChad, it wouldn't compromise speed/snappiness/make it slow or whatever since it uses packer.nvim as plugin manager. packer.nvim lets you lazy load plugins i.e. loading plugins on certain events, mappings, sequentially loading them, etc, thus loading them only when needed. I have lazy loaded all the plugins so most plugins aren't loaded by default, hence not affecting neovim's startup/launch time.
+To everyone who thinks that NvChad is bloat: Bloat means different things to everyone.
+
+NvChad has 38 plugins installed by default yet it is still very fast because it uses Packer plugin maanager. Packer.nvim allows you lets you lazy load plugins, meaning they get loaded only when absoloutely required. Furthermore, you can disable plugins you don't use in `chardrc.lua`.
 
 <img src = "https://chadpaste.com/f/kdmxdabxbk.png">
 
 # TODO
 
-It would be nice if NvChad focuses on existing plugins and config before adding new things. Some plugins like whichkey, telescope and treesitter still have basic configs! Also adding new features that'd make NvChad slow or its startup time slow wouldn't be encouraged. If that feature is really needed then it'll be mentioned in the wiki with its config.
+NvChad is focusing more on improving its already existing plugins and features instead of adding more plugins. Things you can do to help currently are:
 
-- Debloat the config.
-- Make NvChad more and more faster (reduce startup time as low as possible).
-- Add more themes.
+- Improving base plugins configurations
+- Debloating the config.
+- Adding more themes.
 
-# Try in docker
+## Try NvChad in a Docker container
 
-Try NvChad in a docker container. This will leave your current Neovim configuration untouched. Once you exit Neovim, the image is deleted.
+This will leave your current Neovim configuration untouched. Once you exit Neovim, the image is deleted.
 
 ```zsh
   docker run -w /root -it --rm alpine:edge sh -uelic '
@@ -159,21 +170,19 @@ Try NvChad in a docker container. This will leave your current Neovim configurat
     '
 ```
 
-# Chad contributors
+## Chadributors
 
-<a href = "https://github.com/NvChad/NvChad/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo=siduck76/NvChad"/>
+<a href="https://github.com/NvChad/NvChad/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=siduck76/NvChad"/>
 </a>
 
 ## Warning
 
-I get hearings from some plugin devs that nvchad users bring issues on discourse/reddit/matrix/gh repos etc. Please dont do that :/ . Bring NvChad related issues here ONLY and dont ever bother plugin devs, THIS IS A CLEAR WARNING! 😠
+If you have an issue with a plugin in NvChad, first you should report it to NvChad to see if it's an issue with it.
 
 ## :gift_heart: Support
 
-I (siduck76) would happily accept donations but I would be upset and feel bad since Im not the only one who has worked on NvChad. NvChad has been made possible by many contributors so dividing the donations for just me feels very bad and thanks to all the plugin creators once again :'). If you enjoy using NvChad and would like to show your support truly and show your appreciation to my work then try to be a better you! Help the needy people whenever possible (in real life), do some charity.Be nice to your parents and loved ones.Do not be rude , always try to be helpful / caring to one another, stray animals. Its easier to hate now and harder to care , hate used to be rare but now you see it everywhere. Please be respectful to any software/work done by other people rather than making fun of them. Do not compare software (In a bad way). Im grateful to be even able to use neovim! But cant still be fully happy when I think there are people who barely get food to eat, starve for weeks, dont have access to proper education, comupters, basic health care facilities etc.
-
-The following links are some donation (gofundme) links for supporting needy people. Feel free to donate if you can :
+I would happily accept donations but would feel awful since I'm not the only one who has worked on NvChad. The project has only been made possible by the many great contributors and plugin developers, thus taking the donations just for me feels unjustified. If you enjoy using NvChad and would like to show your support then try to be a better you! Help the people in need whenever possible and do charity work. Be nice to loved ones and strangers alike. Do not be rude, always try to be helpful and caring for one another. It's easy to hate but hard to care. Be respectful to any software/work done by other people rather than making fun of them. Do not compare software (In a bad way). I'm grateful to even be able to use NeoVim! But I still cannot be fully happy when I know that there are people who barely have any food to eat, starve for weeks, dont have access to proper education, comupters, basic health care facilities and more. Here are some charites and gofundme links you can donate to instead:
 
 - https://www.gofundme.com/f/WeCareAboutSyria
 - https://www.gofundme.com/f/Burundi-Nutrition

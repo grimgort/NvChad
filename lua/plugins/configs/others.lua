@@ -1,5 +1,7 @@
 local M = {}
 
+local config = require("core.utils").load_config()
+
 M.autopairs = function()
    local present1, autopairs = pcall(require, "nvim-autopairs")
    local present2, autopairs_completion = pcall(require, "nvim-autopairs.completion.cmp")
@@ -23,7 +25,7 @@ M.autosave = function()
    end
 
    autosave.setup {
-      enabled = vim.g.auto_save or false, -- takes boolean value from init.lua
+      enabled = config.options.plugin.autosave, -- takes boolean value from chadrc.lua
       execution_message = "autosaved at : " .. vim.fn.strftime "%H:%M:%S",
       events = { "InsertLeave", "TextChanged" },
       conditions = {
@@ -38,19 +40,26 @@ M.autosave = function()
 end
 
 M.better_escape = function()
-   local config = require("core.utils").load_config()
    vim.g.better_escape_interval = config.options.plugin.esc_insertmode_timeout or 300
 end
 
 M.blankline = function()
-   vim.g.indentLine_enabled = 1
-   vim.g.indent_blankline_char = "▏"
-
-   vim.g.indent_blankline_filetype_exclude = { "help", "terminal", "dashboard", "packer" }
-   vim.g.indent_blankline_buftype_exclude = { "terminal" }
-
-   vim.g.indent_blankline_show_trailing_blankline_indent = false
-   vim.g.indent_blankline_show_first_indent_level = false
+   require("indent_blankline").setup {
+      indentLine_enabled = 1,
+      char = "▏",
+      filetype_exclude = {
+         "help",
+         "terminal",
+         "dashboard",
+         "packer",
+         "lspinfo",
+         "TelescopePrompt",
+         "TelescopeResults",
+      },
+      buftype_exclude = { "terminal" },
+      show_trailing_blankline_indent = false,
+      show_first_indent_level = false,
+   }
 end
 
 M.colorizer = function()
@@ -93,13 +102,6 @@ M.luasnip = function()
    require("luasnip/loaders/from_vscode").load()
 end
 
-M.lspkind = function()
-   local present, lspkind = pcall(require, "lspkind")
-   if present then
-      lspkind.init()
-   end
-end
-
 M.neoscroll = function()
    pcall(function()
       require("neoscroll").setup()
@@ -117,7 +119,6 @@ M.signature = function()
          hint_enable = true,
          hint_prefix = " ",
          hint_scheme = "String",
-         use_lspsaga = false,
          hi_parameter = "Search",
          max_height = 22,
          max_width = 120, -- max_width of signature floating_window, line will be wrapped if exceed max_width
