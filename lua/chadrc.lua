@@ -63,6 +63,7 @@ M.options = {
    -- used for updater
    update_url = "https://github.com/NvChad/NvChad",
    update_branch = "main",
+
 }
 
 -- these are plugin related options
@@ -89,8 +90,8 @@ M.plugin_status = {
    neoformat = true, -- universal formatter
    neoscroll = true, -- smooth scroll
    telescope_media = false, -- see media files in telescope picker
-   truezen = false, -- no distraction mode for nvim
-   vim_fugitive = false, -- git in nvim
+   truezen = true, -- no distraction mode for nvim
+   vim_fugitive = true, -- git in nvim
    vim_matchup = true, -- % magic, match it but improved
 }
 
@@ -121,20 +122,46 @@ M.mappings = {
    terminal = {
       -- multiple mappings can be given for esc_termmode and esc_hide_termmode
       -- get out of terminal mode
-      esc_termmode = { "jk" }, -- multiple mappings allowed
+      -- esc_termmode = { "jk" }, -- multiple mappings allowed
       -- get out of terminal mode and hide it
       -- it does not close it, see pick_term mapping to see hidden terminals
-      esc_hide_termmode = { "JK" }, -- multiple mappings allowed
+      -- esc_hide_termmode = { "JK" }, -- multiple mappings allowed
       -- show hidden terminal buffers in a telescope picker
-      pick_term = "<leader>W",
+      -- pick_term = "<leader>W",
       -- below three are for spawning terminals
-      new_horizontal = "<leader>h",
-      new_vertical = "<leader>v",
-      new_window = "<leader>w",
+      -- new_horizontal = "<leader>h",
+      -- new_vertical = "<leader>v",
+      -- new_window = "<leader>w",
    },
 
    -- update nvchad from nvchad, chadness 101
    update_nvchad = "<leader>uu",
+   -- vim.api.nvim_set_keymap('n', '$', "<cmd>lua require'hop'.hint_words()<cr>", {}),
+   vim.api.nvim_set_keymap('n', 'e', ":HopChar1<cr>", {}),
+   vim.api.nvim_set_keymap('n', " cd", ":cd %:p:h<cr>", {}),
+   vim.api.nvim_set_keymap('n', " gf", ":Telescope git_files<cr>", {}),
+   vim.api.nvim_set_keymap('n', " ee", ":NvimTreeFocus<cr>", {}),
+   vim.api.nvim_set_keymap('n', " ef", ":NvimTreeFindFile<cr>", {}),
+-- GIT mapping
+-- GIT mapping
+   vim.api.nvim_set_keymap('n', " gm", ":Neogit<cr>", {}),
+   vim.api.nvim_set_keymap('n', " ge", ":Git commit<cr>", {}),
+   vim.api.nvim_set_keymap('n', " gg", ":Git grep -ie ", {}),
+   vim.api.nvim_set_keymap('n', " gx", ":Telescope live_grep<cr> ", {}),
+   vim.api.nvim_set_keymap('n', " gt", ":Git tag<cr> ", {}),
+   vim.api.nvim_set_keymap('n', " a", ":ClangdSwitchSourceHeader<cr> ", {}),
+    vim.api.nvim_set_keymap('n', " wx", ":only<cr> ", {}),
+   vim.api.nvim_set_keymap('n', " gz", ":Git branch<cr> ", {}),
+-- local opts = {noremap = true}
+-- local opts = {noremap = true}
+  -- vim.api.nvim_set_keymap( 't', '<esc>', "[[<C-\><C-n>]]", {})
+--   vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
+--   vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
+--   vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
+--   vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
+--   vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+-- 
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
 }
 
 -- all plugins related mappings
@@ -213,6 +240,7 @@ M.custom.mappings = {
    --    "<leader>cc",
    --    "gg0vG$d",
    -- },
+
 }
 
 return M

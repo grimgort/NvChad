@@ -102,17 +102,17 @@ return packer.startup(function()
    }
 
    -- smooth scroll
-   use {
-      "karb94/neoscroll.nvim",
-      disable = not plugin_status.neoscroll,
-      opt = true,
-      config = function()
-         require("plugins.configs.others").neoscroll()
-      end,
-      setup = function()
-         require("core.utils").packer_lazy_load "neoscroll.nvim"
-      end,
-   }
+   -- use {
+   --    "karb94/neoscroll.nvim",
+   --    disable = not plugin_status.neoscroll,
+   --    opt = true,
+   --    config = function()
+   --       require("plugins.configs.others").neoscroll()
+   --    end,
+   --    setup = function()
+   --       require("core.utils").packer_lazy_load "neoscroll.nvim"
+   --    end,
+   -- }
 
    -- lsp stuff
    use {
@@ -258,17 +258,17 @@ return packer.startup(function()
    }
 
    --   use "alvan/vim-closetag" -- for html autoclosing tag
-   use {
-      "terrortylor/nvim-comment",
-      disable = not plugin_status.comment,
-      cmd = "CommentToggle",
-      config = function()
-         require("plugins.configs.others").comment()
-      end,
-      setup = function()
-         require("core.mappings").comment()
-      end,
-   }
+   -- use {
+   --    "terrortylor/nvim-comment",
+   --    disable = not plugin_status.comment,
+   --    cmd = "CommentToggle",
+   --    config = function()
+   --       require("plugins.configs.others").comment()
+   --    end,
+   --    setup = function()
+   --       require("core.mappings").comment()
+   --    end,
+   -- }
 
    -- file managing , picker etc
    use {
@@ -350,4 +350,84 @@ return packer.startup(function()
          require("core.mappings").vim_fugitive()
       end,
    }
+   use {
+  'phaazon/hop.nvim',
+  as = 'hop',
+  config = function()
+    -- you can configure Hop the way you like here; see :h hop-config
+    require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+  end
+}
+use {
+  "folke/which-key.nvim",
+  config = function()
+    require("which-key").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+  }
+use {"akinsho/toggleterm.nvim",
+config =function()
+  require("toggleterm").setup {
+  open_mapping = [[<C-à>]],
+  start_in_insert = true,
+  insert_mappings = true, -- whether or not the open mapping applies in insert mode
+  shell ="pwsh.exe", -- change the default shell
+}
+end
+}
+use {
+  "blackCauldron7/surround.nvim",
+  config = function()
+    require"surround".setup {mappings_style = "surround"}
+  end
+}
+use {
+  "folke/twilight.nvim",
+  config = function()
+    require("twilight").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+}
+use 'mfussenegger/nvim-dap'
+use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+use "Pocco81/DAPInstall.nvim"
+local dap = require('dap')
+dap.adapters.lldb = {
+  type = 'executable',
+  command = '/usr/bin/lldb-vscode', -- adjust as needed
+  name = "lldb"
+}
+use {
+  -- Optional but recommended
+  -- 'nvim-treesitter/nvim-treesitter',
+  'lewis6991/spellsitter.nvim',
+}
+use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+require'nvim-treesitter.configs'.setup {
+  rainbow = {
+    enable = true,
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    colors = {}, -- table of hex strings
+    termcolors = {} -- table of colour name strings
+  }
+}
+use {'simrat39/symbols-outline.nvim'}
+use 'b3nj5m1n/kommentary'
+use {
+'dominikduda/vim_current_word'
+-- ,require('vim_current_word').setup{
+-- vim.api.nvim_command('let g:vim_current_word#highlight_current_word = 0')
+--  -- vim_current_word#highlight_current_word = 0
+-- }
+}
+use {'voldikss/vim-translator'}
+use{'airblade/vim-rooter'}
+use{'Shatur/neovim-cmake'}
 end)
