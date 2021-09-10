@@ -426,4 +426,6 @@ use{'Shatur/neovim-cmake'}
 use {'sindrets/diffview.nvim'}
 use {'lambdalisue/gina.vim'}
 use {'mbbill/undotree'}
+-- use {'alexaandru/nvim-lspupdate'}
+-- use {'williamboman/nvim-lsp-installer'}
 end)

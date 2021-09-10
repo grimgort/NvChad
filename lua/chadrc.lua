@@ -217,7 +217,7 @@ M.custom.mappings = {
 vim.api.nvim_set_keymap('n', " gy", ":Gina tag<cr> ", {}),
 vim.api.nvim_set_keymap('n', " wx", ":only<cr> ", {}),
    vim.api.nvim_set_keymap('n', " gr", ":Gina branch<cr> ", {}),
-   vim.api.nvim_set_keymap('n', " gl", ":Gina log<cr> ", {}),
+   vim.api.nvim_set_keymap('n', " go", ":Gina log<cr> ", {}),
    vim.api.nvim_set_keymap('n', " gp", ":Gina pull<cr> ", {}),
    vim.api.nvim_set_keymap('n', " g*", ":Gina push<cr> ", {}),
    vim.api.nvim_set_keymap('n', 'e', ":HopChar1<cr>", {}),
