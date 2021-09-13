@@ -236,4 +236,11 @@ vim.api.nvim_set_keymap('n', " wx", ":only<cr> ", {}),
    vim.api.nvim_set_keymap('n', " gz", ":Git branch<cr> ", {}),
 }
 
+M.plugins = {
+   lspconfig = {
+      -- servers = {"html", "cssls"}
+      servers = {},
+   },
+}
+
 return M
