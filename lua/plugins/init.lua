@@ -425,7 +425,7 @@ use{'airblade/vim-rooter'}
 use{'Shatur/neovim-cmake'}
 use {'sindrets/diffview.nvim'}
 use {'lambdalisue/gina.vim'}
-use {'mbbill/undotree'}
+-- use {'mbbill/undotree'}
 -- use {  'p00f/nvim-ts-rainbow'}
 use {
   "ahmedkhalf/lsp-rooter.nvim",
@@ -440,4 +440,7 @@ use {
 -- use {'alexaandru/nvim-lspupdate'}
 -- use {'williamboman/nvim-lsp-installer'}
 use{'skywind3000/asyncrun.vim'}
+use{'gelguy/wilder.nvim'}
+ use{"simnalamburt/vim-mundo"}
+use{"rhysd/committia.vim"}
 end)
