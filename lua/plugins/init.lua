@@ -193,6 +193,15 @@ return packer.startup(function()
       config = function()
          require("plugins.configs.others").luasnip()
       end,
+    requires = {
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-nvim-lua",
+"hrsh7th/cmp-calc",
+    },
    }
 
    use {
@@ -214,7 +223,14 @@ return packer.startup(function()
       "hrsh7th/cmp-buffer",
       after = "cmp-nvim-lsp",
    }
-
+   use {
+      "hrsh7th/cmp-path",
+      after = "cmp-nvim-lsp",
+   }
+   use {
+      "hrsh7th/cmp-calc",
+      after = "cmp-nvim-lsp",
+   }
    -- misc plugins
    use {
       "windwp/nvim-autopairs",
@@ -437,4 +453,5 @@ use{'skywind3000/asyncrun.vim'}
 use{'gelguy/wilder.nvim'}
  use{"simnalamburt/vim-mundo"}
 use{"rhysd/committia.vim"}
+use {'kevinhwang91/nvim-hlslens'}
 end)

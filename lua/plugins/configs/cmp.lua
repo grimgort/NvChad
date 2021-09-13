@@ -23,17 +23,27 @@ cmp.setup {
          )
 
          vim_item.menu = ({
-            nvim_lsp = "[LSP]",
-            nvim_lua = "[Lua]",
-            buffer = "[BUF]",
+          nvim_lsp = "(LSP)",
+          emoji = "(Emoji)",
+          path = "(Path)",
+          calc = "(Calc)",
+          cmp_tabnine = "(Tabnine)",
+          vsnip = "(Snippet)",
+          luasnip = "(Snippet)",
+          buffer = "(Buffer)",
          })[entry.source.name]
+ vim_item.dup = ({
+          buffer = 1,
+          path = 1,
+          nvim_lsp = 0,
+        })[entry.source.name] or 0
 
          return vim_item
       end,
    },
    mapping = {
-      ["<C-p>"] = cmp.mapping.select_prev_item(),
-      ["<C-n>"] = cmp.mapping.select_next_item(),
+      ["<C-k>"] = cmp.mapping.select_prev_item(),
+      ["<C-j>"] = cmp.mapping.select_next_item(),
       ["<C-d>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),
@@ -63,8 +73,14 @@ cmp.setup {
    },
    sources = {
       { name = "nvim_lsp" },
+      { name = "path" },
       { name = "luasnip" },
-      { name = "buffer" },
+      { name = "cmp_tabnine" },
       { name = "nvim_lua" },
+      { name = "buffer" },
+      { name = "calc" },
+      { name = "emoji" },
+      { name = "treesitter" },
+      { name = "crates" },
    },
 }

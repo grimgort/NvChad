@@ -169,4 +169,4 @@ dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
 
 vim.api.nvim_command('set undofile')
-vim.api.nvim_command('set ./vim/undo')
+-- vim.api.nvim_command('set ./vim/undo')

@@ -108,3 +108,7 @@ vim.notify = function(msg, log_level, _opts)
       vim.api.nvim_echo({ { msg } }, true, {})
    end
 end
+
+require'lspconfig'.clangd.setup{}
+require'lspconfig'.cmake.setup{}
+require'lspconfig'.jedi_language_server.setup{}
