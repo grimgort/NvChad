@@ -426,6 +426,18 @@ use{'Shatur/neovim-cmake'}
 use {'sindrets/diffview.nvim'}
 use {'lambdalisue/gina.vim'}
 use {'mbbill/undotree'}
+-- use {  'p00f/nvim-ts-rainbow'}
+use {
+  "ahmedkhalf/lsp-rooter.nvim",
+  config = function()
+    require("lsp-rooter").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+}
 -- use {'alexaandru/nvim-lspupdate'}
 -- use {'williamboman/nvim-lsp-installer'}
+use{'skywind3000/asyncrun.vim'}
 end)
