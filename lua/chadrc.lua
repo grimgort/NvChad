@@ -240,9 +240,9 @@ vim.api.nvim_set_keymap('n', " wx", ":only<cr>", {}),
 
    vim.api.nvim_set_keymap('n', " a", ":ClangdSwitchSourceHeader<cr> ", {}),
     vim.api.nvim_set_keymap('n', " wx", ":only<cr>", {}),
-    vim.api.nvim_set_keymap('n', "à", ":ToggleTerm<cr>", {})
-    vim.api.nvim_set_keymap('n', "<leader>o", ":Telescope lsp_workspace_symbols<cr>", {})
-    vim.api.nvim_set_keymap('n', "<leader>td", ":Telescope lsp_document_diagnostics<cr>", {})
+    vim.api.nvim_set_keymap('n', "à", ":ToggleTerm<cr>", {}),
+    vim.api.nvim_set_keymap('n', "<leader>o", ":Telescope lsp_workspace_symbols<cr>", {}),
+    vim.api.nvim_set_keymap('n', "<leader>td", ":Telescope lsp_document_diagnostics<cr>", {}),
 
 }
 M.plugins = {
