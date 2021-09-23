@@ -196,7 +196,7 @@ M.mappings.plugin = {
    vim_fugitive = {
       diff_get_2 = "<leader>gh",
       diff_get_3 = "<leader>gl",
-      git = "<leader>gs",
+      -- git = "<leader>gs",
       git_blame = "<leader>gb",
    },
 }

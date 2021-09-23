@@ -112,3 +112,7 @@ end
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.cmake.setup{}
 require'lspconfig'.jedi_language_server.setup{}
+require'lspconfig'.fortls.setup{}
+require'lspconfig'.sumneko_lua.setup{}
+
+

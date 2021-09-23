@@ -26,6 +26,8 @@ vim.cmd('autocmd User TelescopePreviewerLoaded setlocal wrap')
 vim.api.nvim_command('let g:vim_current_word#highlight_current_word = 0')
 
     vim.api.nvim_set_keymap('n', "²", ":CloseAll<cr> ", {})
+    vim.api.nvim_set_keymap('i', "²", ":CloseAll<cr> ", {})
+
 
 local result = vim.api.nvim_exec(
 [[
@@ -114,8 +116,10 @@ function! CloseWindo()
   if has('nvim')
     if win_gotoid(g:term_win)
       hide
+      silent! :ToggleTermCloseAll<cr>
     endif
   endif
+  silent! :ToggleTermCloseAll
   windo call Close_all()
   "exec "silent! saved_winnr . 'wincmd w'"
   "exec "silent! saved_winnr . 'bufload'"
@@ -128,8 +132,7 @@ function! CloseWindo()
 endfunction
 
 command! CloseAll call CloseWindo()
-
-
+  set autoread
 ]],
 true)
 
@@ -169,4 +172,70 @@ dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
 
 vim.api.nvim_command('set undofile')
+local result = vim.api.nvim_exec(
+[[
+
+
+nnoremap << >>
+nnoremap >> <<
+vnoremap << >gv
+vnoremap >> <gv
+nnoremap dd "_dd
+nnoremap d "_d
+vnoremap d "_d
+nnoremap D "_D
+vnoremap D "_D
+nnoremap x "_x
+vnoremap x "_x
+nnoremap cc dd
+nnoremap c d
+vnoremap c d
+noremap <Del> "_x
+
+nnoremap <A-&> 1gt
+nnoremap <A-é> 2gt
+nnoremap <A-"> 3gt
+nnoremap <A-'> 4gt
+nnoremap <A-(> 5gt
+nnoremap <A--> 6gt
+nnoremap <A-è> 7gt
+nnoremap <A-_> 8gt
+nnoremap <A-ç> 9gt
+nnoremap <A-à> 10gt
+
+tnoremap <A-&> <C-\><C-n>1gt
+tnoremap <A-é> <C-\><C-n>2gt
+tnoremap <A-"> <C-\><C-n>3gt
+tnoremap <A-'> <C-\><C-n>4gt
+tnoremap <A-(> <C-\><C-n>5gt
+tnoremap <A--> <C-\><C-n>6gt
+tnoremap <A-è> <C-\><C-n>7gt
+tnoremap <A-_> <C-\><C-n>8gt
+tnoremap <A-ç> <C-\><C-n>9gt
+tnoremap <A-à> <C-\><C-n>10gt
+
+
+   vnoremap <C-X> "+x
+    vnoremap <S-Del> "+x
+
+    " CTRL-C and CTRL-Insert are Copy
+    vnoremap <C-C> "+y
+    vnoremap <C-Insert> "+y
+
+    " CTRL-V and SHIFT-Insert are Paste
+    map <C-V>		"+gP
+    map <S-Insert>		"+gP
+
+    cmap <C-V>		<C-R>+
+    cmap <S-Insert>		<C-R>+
+
+
+   tmap <C-V>		<C-\><C-n>"+gP
+   tmap <S-Insert>		<C-\><C-n>"+gP
+
+
+]]
+,
+true)
+
 -- vim.api.nvim_command('set ./vim/undo')

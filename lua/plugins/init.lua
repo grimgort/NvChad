@@ -312,8 +312,8 @@ return packer.startup(function()
             setup = function()
                require("core.mappings").telescope_media()
             end,
-         },
-      },
+         }
+       },
       config = function()
          require "plugins.configs.telescope"
       end,
@@ -454,4 +454,17 @@ use{'gelguy/wilder.nvim'}
  use{"simnalamburt/vim-mundo"}
 use{"rhysd/committia.vim"}
 use {'kevinhwang91/nvim-hlslens'}
+use{'vim-scripts/DoxygenToolkit.vim'}
+use{'alexaandru/nvim-lspupdate'}
+use{'tjdevries/nlua.nvim'}
+use {"p00f/nvim-ts-rainbow", event = "BufRead"} 
+use{"kosayoda/nvim-lightbulb"}
+use{"tami5/sqlite.lua"}
+use {
+  "nvim-telescope/telescope-arecibo.nvim",
+  rocks = {"openssl", "lua-http-parser"}
+}
+-- use{'TheZoq2/neovim-auto-autoread'} don't work
+--
 end)
+

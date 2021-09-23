@@ -113,7 +113,7 @@ M.mappings = {
 
    line_number_toggle = "<leader>n", -- show or hide line number
    new_buffer = "<S-t>", -- open a new buffer
-   new_tab = "<C-t>b", -- open a new vim tab
+   new_tab = "<leader>wt", -- open a new vim tab
    save_file = "<C-s>", -- save file using :w
    theme_toggler = "<leader>tt", -- for theme toggler, see in ui.theme_toggler
 
@@ -128,9 +128,9 @@ M.mappings = {
       -- show hidden terminal buffers in a telescope picker
       -- pick_term = "<leader>W",
       -- below three are for spawning terminals
-      -- new_horizontal = "<leader>h",
-      -- new_vertical = "<leader>v",
-      -- new_window = "<leader>w",
+      new_horizontal = "<leader>h",
+      new_vertical = "",
+      new_window = "<leader>w",
    },
 
    -- update nvchad from nvchad, chadness 101
@@ -175,13 +175,13 @@ M.mappings.plugin = {
       format = "<leader>fm",
    },
    telescope = {
-      buffers = "<leader>fb",
-      find_files = "<leader>ff",
-      git_commits = "<leader>cm",
-      git_status = "<leader>gt",
-      help_tags = "<leader>fh",
-      live_grep = "<leader>fw",
-      oldfiles = "<leader>fo",
+      buffers = "<leader>tb",
+      find_files = "<leader>tf",
+      git_commits = "<leader>tm",
+      git_status = "<leader>tt",
+      help_tags = "<leader>th",
+      live_grep = "<leader>tw",
+      oldfiles = "<leader>to",
       themes = "<leader>th",
    },
    telescope_media = {
@@ -195,8 +195,8 @@ M.mappings.plugin = {
    vim_fugitive = {
       diff_get_2 = "<leader>gh",
       diff_get_3 = "<leader>gl",
-      git = "<leader>gs",
-      git_blame = "<leader>gb",
+      -- git = "<leader>gs",
+      git_blame = "<leader>gr",
    },
 }
 
@@ -214,28 +214,37 @@ M.custom.mappings = {
    --    "<leader>cc",
    --    "gg0vG$d",
    -- },
-vim.api.nvim_set_keymap('n', " gy", ":Gina tag<cr> ", {}),
-vim.api.nvim_set_keymap('n', " wx", ":only<cr> ", {}),
-   vim.api.nvim_set_keymap('n', " gr", ":Gina branch<cr> ", {}),
-   vim.api.nvim_set_keymap('n', " go", ":Gina log<cr> ", {}),
-   vim.api.nvim_set_keymap('n', " gp", ":Gina pull<cr> ", {}),
-   vim.api.nvim_set_keymap('n', " g*", ":Gina push<cr> ", {}),
+vim.api.nvim_set_keymap('n', " gy", ":Gina tag<cr>", {}),
+vim.api.nvim_set_keymap('n', " wx", ":only<cr>", {}),
+   vim.api.nvim_set_keymap('n', " gb", ":Gina branch<cr>", {}),
+   vim.api.nvim_set_keymap('n', " go", ":Gina log --graph --all<cr>", {}),
+   vim.api.nvim_set_keymap('n', " gp", ":Gina pull<cr>", {}),
+   vim.api.nvim_set_keymap('n', " g*", ":Gina push<cr>", {}),
    vim.api.nvim_set_keymap('n', 'e', ":HopChar1<cr>", {}),
    vim.api.nvim_set_keymap('n', " cd", ":cd %:p:h<cr>", {}),
    vim.api.nvim_set_keymap('n', " gf", ":Telescope git_files<cr>", {}),
+   vim.api.nvim_set_keymap('n', " ff", ":Telescope git_files<cr>", {}),
    vim.api.nvim_set_keymap('n', " ee", ":NvimTreeFocus<cr>", {}),
    vim.api.nvim_set_keymap('n', " ef", ":NvimTreeFindFile<cr>", {}),
 -- GIT mapping
    vim.api.nvim_set_keymap('n', " gm", ":Neogit<cr>", {}),
-   vim.api.nvim_set_keymap('n', " ge", ":Git commit<cr>", {}),
-   vim.api.nvim_set_keymap('n', " gg", ":Git grep -ie ", {}),
-   vim.api.nvim_set_keymap('n', " gx", ":Telescope live_grep<cr> ", {}),
-   vim.api.nvim_set_keymap('n', " gt", ":Git tag<cr> ", {}),
-   vim.api.nvim_set_keymap('n', " a", ":ClangdSwitchSourceHeader<cr> ", {}),
-    vim.api.nvim_set_keymap('n', " wx", ":only<cr> ", {}),
-   vim.api.nvim_set_keymap('n', " gz", ":Git branch<cr> ", {}),
-}
+   vim.api.nvim_set_keymap('n', " ge", ":Gina commit --opener=\"to split\" --group=\"test\"<cr>", {}),
+   vim.api.nvim_set_keymap('n', " gg", ":Gina grep  --opener=tabnew --group=\"test\" -ie ", {}),
+   vim.api.nvim_set_keymap('n', " gw", ":Gina grep  --opener=tabnew --group=\"test\" -ie \"\"\b<C-R><C-W>\b\"", {}),
+   vim.api.nvim_set_keymap('n', " gx", ":Telescope live_grep<cr>", {}),
+   vim.api.nvim_set_keymap('n', " gt", ":Gina tag<cr>", {}),
+   vim.api.nvim_set_keymap('n', " gd", ":Gvdiffsplit<cr>", {}),
+   vim.api.nvim_set_keymap('n', " gz", ":Gina branch<cr>", {}),
+   vim.api.nvim_set_keymap('n', " ga", ":Gina commit --amend --opener=\"to split\" --group=\"test\"<cr> ", {}),
+   vim.api.nvim_set_keymap('n', " gs", ":Gina status  --opener=\"to split\" --group=\"test\"<cr>", {}),
 
+   vim.api.nvim_set_keymap('n', " a", ":ClangdSwitchSourceHeader<cr> ", {}),
+    vim.api.nvim_set_keymap('n', " wx", ":only<cr>", {}),
+    vim.api.nvim_set_keymap('n', "à", ":ToggleTerm<cr>", {})
+    vim.api.nvim_set_keymap('n', "<leader>o", ":Telescope lsp_workspace_symbols<cr>", {})
+    vim.api.nvim_set_keymap('n', "<leader>td", ":Telescope lsp_document_diagnostics<cr>", {})
+
+}
 M.plugins = {
    lspconfig = {
       -- servers = {"html", "cssls"}

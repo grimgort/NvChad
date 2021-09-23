@@ -80,9 +80,9 @@ M.misc = function()
       map("n", term_maps.pick_term, ":Telescope terms <CR>")
       -- Open terminals
       -- TODO this opens on top of an existing vert/hori term, fixme
-      map("n", term_maps.new_horizontal, ":execute 15 .. 'new +terminal' | let b:term_type = 'hori' | startinsert <CR>")
+      --[[ map("n", term_maps.new_horizontal, ":execute 15 .. 'new +terminal' | let b:term_type = 'hori' | startinsert <CR>")
       map("n", term_maps.new_vertical, ":execute 'vnew +terminal' | let b:term_type = 'vert' | startinsert <CR>")
-      map("n", term_maps.new_window, ":execute 'terminal' | let b:term_type = 'wind' | startinsert <CR>")
+      map("n", term_maps.new_window, ":execute 'terminal' | let b:term_type = 'wind' | startinsert <CR>") ]]
       -- terminal mappings end --
 
       -- Add Packer commands because we are not loading it at startup
@@ -95,7 +95,7 @@ M.misc = function()
 
       -- add NvChadUpdate command and mapping
       cmd "silent! command! NvChadUpdate lua require('nvchad').update_nvchad()"
-      map("n", maps.update_nvchad, ":NvChadUpdate <CR>")
+      -- map("n", maps.update_nvchad, ":NvChadUpdate <CR>")
 
       -- add ChadReload command and maping
       -- cmd "silent! command! NvChadReload lua require('nvchad').reload_config()"
@@ -144,8 +144,8 @@ end
 
 M.comment = function()
    local m = plugin_maps.comment.toggle
-   map("n", m, ":CommentToggle <CR>")
-   map("v", m, ":CommentToggle <CR>")
+   --[[ map("n", m, ":CommentToggle <CR>")
+   map("v", m, ":CommentToggle <CR>") ]]
 end
 
 M.dashboard = function()
