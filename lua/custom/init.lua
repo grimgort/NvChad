@@ -23,35 +23,35 @@ local hooks = require "core.hooks"
 
 hooks.add("setup_mappings", function(map)
    -- map("n", "<leader>cc", "gg0vG$d", opt) -- example to delete the buffer
-map('n', " gy", ":Gina tag<cr>", opt),
-map('n', " wx", ":only<cr>", opt),
-   map('n', " gb", ":Gina branch<cr>", opt),
-   map('n', " go", ":Gina log --graph --all<cr>", opt),
-   map('n', " gp", ":Gina pull<cr>", opt),
-   map('n', " g*", ":Gina push<cr>", opt),
-   map('n', 'e', ":HopChar1<cr>", opt),
-   map('n', " cd", ":cd %:p:h<cr>", opt),
-   map('n', " gf", ":Telescope git_files<cr>", opt),
-   map('n', " ff", ":Telescope git_files<cr>", opt),
-   map('n', " ee", ":NvimTreeFocus<cr>", opt),
-   map('n', " ef", ":NvimTreeFindFile<cr>", opt),
+   map('n', " gy", ":Gina tag<cr>", opt)
+   map('n', " wx", ":only<cr>", opt)
+   map('n', " gb", ":Gina branch<cr>", opt)
+   map('n', " go", ":Gina log --graph --all<cr>", opt)
+   map('n', " gp", ":Gina pull<cr>", opt)
+   map('n', " g*", ":Gina push<cr>", opt)
+   map('n', 'e', ":HopChar1<cr>", opt)
+   map('n', " cd", ":cd %:p:h<cr>", opt)
+   map('n', " gf", ":Telescope git_files<cr>", opt)
+   map('n', " ff", ":Telescope git_files<cr>", opt)
+   map('n', " ee", ":NvimTreeFocus<cr>", opt)
+   map('n', " ef", ":NvimTreeFindFile<cr>", opt)
 -- GIT mapping
-   map('n', " gm", ":Neogit<cr>", opt),
-   map('n', " ge", ":Gina commit --opener=\"to split\" --group=\"test\"<cr>", opt),
-   map('n', " gg", ":Gina grep  --opener=tabnew --group=\"test\" -ie ", opt),
-   map('n', " gw", ":Gina grep  --opener=tabnew --group=\"test\" -ie \"\"\b<C-R><C-W>\b\"", opt),
-   map('n', " gx", ":Telescope live_grep<cr>", opt),
-   map('n', " gt", ":Gina tag<cr>", opt),
-   map('n', " gd", ":Gvdiffsplit<cr>", opt),
-   map('n', " gz", ":Gina branch<cr>", opt),
-   map('n', " ga", ":Gina commit --amend --opener=\"to split\" --group=\"test\"<cr> ", opt),
-   map('n', " gs", ":Gina status  --opener=\"to split\" --group=\"test\"<cr>", opt),
+   map('n', " gm", ":Neogit<cr>", opt)
+   map('n', " ge", ":Gina commit --opener=\"to split\" --group=\"test\"<cr>", opt)
+   map('n', " gg", ":Gina grep  --opener=tabnew --group=\"test\" -ie ", opt)
+   map('n', " gw", ":Gina grep  --opener=tabnew --group=\"test\" -ie \"\"\b<C-R><C-W>\b\"", opt)
+   map('n', " gx", ":Telescope live_grep<cr>", opt)
+   map('n', " gt", ":Gina tag<cr>", opt)
+   map('n', " gd", ":Gvdiffsplit<cr>", opt)
+   map('n', " gz", ":Gina branch<cr>", opt)
+   map('n', " ga", ":Gina commit --amend --opener=\"to split\" --group=\"test\"<cr> ", opt)
+   map('n', " gs", ":Gina status  --opener=\"to split\" --group=\"test\"<cr>", opt)
 
-   map('n', " a", ":ClangdSwitchSourceHeader<cr> ", opt),
-    map('n', " wx", ":only<cr>", opt),
-    map('n', "à", ":ToggleTerm<cr>", opt),
-    map('n', "<leader>o", ":Telescope lsp_workspace_symbols<cr>", opt),
-    map('n', "<leader>td", ":Telescope lsp_document_diagnostics<cr>", opt),
+   map('n', " a", ":ClangdSwitchSourceHeader<cr> ", opt)
+    map('n', " wx", ":only<cr>", opt)
+    map('n', "à", ":ToggleTerm<cr>", opt)
+    map('n', "<leader>o", ":Telescope lsp_workspace_symbols<cr>", opt)
+    map('n', "<leader>td", ":Telescope lsp_document_diagnostics<cr>", opt)
 
 
 end)
