@@ -1,6 +1,7 @@
 -- This is where you custom modules and plugins goes.
 -- See the wiki for a guide on how to extend NvChad
 
+require "custom.plugin_confs.lspconfig"
 local hooks = require "core.hooks"
 
 -- NOTE: To use this, make a copy with `cp example_init.lua init.lua`
@@ -173,6 +174,31 @@ use{'tjdevries/nlua.nvim'}
 use {"p00f/nvim-ts-rainbow", event = "BufRead"} 
 use{"kosayoda/nvim-lightbulb"}
 use{"tami5/sqlite.lua"}
+   use {
+      "L3MON4D3/LuaSnip",
+      wants = "friendly-snippets",
+      after = "nvim-cmp",
+      config = function()
+         require("plugins.configs.others").luasnip()
+      end,
+    requires = {
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-nvim-lua",
+"hrsh7th/cmp-calc",
+    },
+   }
+   use {
+      "hrsh7th/cmp-path",
+      after = "cmp-nvim-lsp",
+   }
+   use {
+      "hrsh7th/cmp-calc",
+      after = "cmp-nvim-lsp",
+   }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
