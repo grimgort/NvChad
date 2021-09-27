@@ -178,4 +178,4 @@ end)
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
 -- then source it with
 
--- require "custom.plugins.mkdir"
+require "custom.fred"
