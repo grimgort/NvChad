@@ -2,7 +2,7 @@
 -- This file is for NvChad options & tools, custom settings are split between here and 'lua/custom/init.lua'
 
 local M = {}
-M.options, M.ui, M.mappings, M.plugins, M.mappings.plugins = {}, {}, {}, {}
+M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 
 -- NOTE: To use this, make a copy with `cp example_chadrc.lua chadrc.lua`
 
@@ -15,17 +15,19 @@ M.options, M.ui, M.mappings, M.plugins, M.mappings.plugins = {}, {}, {}, {}
 --    relativenumber = true,
 -- }
 
-
+M.ui = {
+  theme = "uwu"
+}
 M.mappings = {
    -- custom = {}, -- all custom user mappings
    -- close current focused buffer
-   close_buffer = "<leader>x",
+   close_buffer = "<leader>!!!!!!x",
    copy_whole_file = "<C-a>", -- copy all contents of the current buffer
-   line_number_toggle = "<leader>!!!!!n", -- show or hide line number
+   line_number_toggle = "<leader>!!!!!!!!!!n", -- show or hide line number
    new_buffer = "<S-t>", -- open a new buffer
    new_tab = "<C-t>b", -- open a new vim tab
    save_file = "<C-s>", -- save file using :w
-   theme_toggler = "<leader>!!!!!!!!!tt", -- for theme toggler, see in ui.theme_toggler
+   theme_toggler = "<leader>tt", -- for theme toggler, see in ui.theme_toggler
    -- navigation in insert mode, only if enabled in options
    insert_nav = {
       backward = "<C-h>",
@@ -50,21 +52,20 @@ M.mappings = {
       -- get out of terminal mode and hide it
       esc_hide_termmode = { "JK" }, -- multiple mappings allowed
       -- show & recover hidden terminal buffers in a telescope picker
-      pick_term = "<leader>!!!!!!!!!!!W",
+      pick_term = "<leader>!!!!!!!!W",
       -- below three are for spawning terminals
-      new_horizontal = "<leader>!!!!!!!!!h",
-      new_vertical = "<leader>!!!!!!!!!!!v",
-      new_window = "<leader>!!!!!!!!!!!!w",
+      new_horizontal = "<leader>!!!!!!!!h",
+      new_vertical = "<leader>!!!!!!!!!!v",
+      new_window = "<leader>!!!!!!!!w",
    },
    -- update nvchad from nvchad, chadness 101
-   update_nvchad = "<leader>!!!!!!uu",
+   update_nvchad = "<leader>uu",
 }
-
 M.mappings.plugins = {
    -- list open buffers up the top, easy switching too
    bufferline = {
-      next_buffer = "<leader>!!!!!!!!!!!!!!", -- next buffer
-      prev_buffer = "<leader>!!!!!!!!!!", -- previous buffer
+      next_buffer = "<leader>!!!!!!!!!", -- next buffer
+      prev_buffer = "<leader>!!!!!!!!!a", -- previous buffer
    },
    -- easily (un)comment code, language aware
    comment = {
@@ -72,11 +73,11 @@ M.mappings.plugins = {
    },
    -- NeoVim 'home screen' on open
    dashboard = {
-      bookmarks = "<leader>dm",
-      new_file = "<leader>dn", -- basically create a new buffer
-      open = "<leader>db", -- open dashboard
-      session_load = "<leader>dl", -- load a saved session
-      session_save = "<leader>ds", -- save a session
+      bookmarks = "<leader>bm",
+      new_file = "<leader>bn", -- basically create a new buffer
+      open = "<leader>bb", -- open dashboard
+      session_load = "<leader>bl", -- load a saved session
+      session_save = "<leader>bs", -- save a session
    },
    -- map to <ESC> with no lag
    better_escape = { -- <ESC> will still work
@@ -101,7 +102,9 @@ M.mappings.plugins = {
       live_grep = "<leader>tw",
       oldfiles = "<leader>to",
       themes = "<leader>th",
-      find_hiddenfiles = "<leader>tp",
+      telescope_media = {
+         media_files = "<leader>fp",
+      },
    },
    -- distraction free & minimalist UI mode
    truezen = {
@@ -112,37 +115,17 @@ M.mappings.plugins = {
 }
 
 
-M.ui = {
-   theme = "uwu",
-}
+
+
+
 
 -- NvChad included plugin options & overrides
 M.plugins = {
-
    options = {
-
       --  lspconfig = {
       --    -- servers = {"html", "cssls"}
       --    servers = {},
       -- },
-      nvim_cmp ={
-        mapping = {
-      ["<C-k>"] = cmp.mapping.select_prev_item(),
-      ["<C-j>"] = cmp.mapping.select_next_item(),
-        },
-    sources = {
-      { name = "nvim_lsp" },
-      { name = "path" },
-      { name = "luasnip" },
-      { name = "cmp_tabnine" },
-      { name = "nvim_lua" },
-      { name = "buffer" },
-      { name = "calc" },
-      { name = "emoji" },
-      { name = "treesitter" },
-      { name = "crates" },
-   },       
-        }
    },
    -- To change the Packer `config` of a plugin that comes with NvChad,
    -- add a table entry below matching the plugin github name
@@ -150,7 +133,7 @@ M.plugins = {
    -- this string will be called in a `require`
    --              use "(custom.configs).my_func()" to call a function
    --              use "custom.blankline" to call a file
-   default_plugin_config_replace = {"nvim_cmp"},
+   default_plugin_config_replace = {},
 }
 
 return M
