@@ -148,6 +148,7 @@ use{'airblade/vim-rooter'}
 use{'Shatur/neovim-cmake'}
 use {'sindrets/diffview.nvim'}
 use {'lambdalisue/gina.vim'}
+use {'tpope/vim-fugitive'}
 -- use {'mbbill/undotree'}
 -- use {  'p00f/nvim-ts-rainbow'}
 use {
@@ -181,6 +182,15 @@ use{"tami5/sqlite.lua"}
       "hrsh7th/cmp-calc",
       after = "cmp-nvim-lsp",
    }
+use {
+  'sudormrfbin/cheatsheet.nvim',
+
+  requires = {
+    {'nvim-telescope/telescope.nvim'},
+    {'nvim-lua/popup.nvim'},
+    {'nvim-lua/plenary.nvim'},
+  }
+}
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"

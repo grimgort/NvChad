@@ -121,6 +121,25 @@ M.mappings.plugins = {
 
 -- NvChad included plugin options & overrides
 M.plugins = {
+  plugin_status ={
+      autosave = false, -- to autosave files
+      blankline = true, -- show code scope with symbols
+      bufferline = true, -- list open buffers up the top, easy switching too
+      colorizer = true, -- color RGB, HEX, CSS, NAME color codes
+      comment = true, -- easily (un)comment code, language aware
+      dashboard = true, -- NeoVim 'home screen' on open
+      esc_insertmode = true, -- map to <ESC> with no lag
+      feline = true, -- statusline
+      gitsigns = true, -- gitsigns in statusline
+      lspsignature = true, -- lsp enhancements
+      neoformat = true, -- universal code formatter
+      neoscroll = false, -- smooth scroll
+      telescope_media = true, -- media previews within telescope finders
+      truezen = true, -- distraction free & minimalist UI mode
+      vim_matchup = true, -- % operator enhancements
+      cmp = true,
+
+  },
    options = {
        lspconfig = {
          -- servers = {"html", "cssls"}
