@@ -1,9 +1,5 @@
--- local present, cmp = pcall(require, "cmp_perso")
-
 local cmp = require'cmp'
---[[ if not present then
-   return
-end ]]
+
 vim.opt.completeopt = "menuone,noselect"
 
 -- nvim-cmp setup
@@ -72,5 +68,5 @@ cmp.setup {
       { name = "emoji" },
       { name = "treesitter" },
       { name = "crates" },
-
+   },
 }

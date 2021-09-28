@@ -124,7 +124,7 @@ M.plugins = {
    options = {
        lspconfig = {
          -- servers = {"html", "cssls"}
-         servers = {"clangd"},
+         servers = {"clangd","jedi_language_server", "clangd", "cmake", "fortls", "sumneko_lua"},
       },
    },
 
@@ -135,7 +135,8 @@ M.plugins = {
    --              use "(custom.configs).my_func()" to call a function
    --              use "custom.blankline" to call a file
    default_plugin_config_replace = {
-     -- nvim_cmp = "custom.plugin_confs.cmp_perso",
+     nvim_cmp = "custom.plugin_confs.cmp",
+     -- luasnip = "custom.plugin_confs.luasnip",
      -- lspconfig = "custom.plugin_confs.lspconfig",
    },
 }
