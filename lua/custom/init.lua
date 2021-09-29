@@ -52,6 +52,24 @@ hooks.add("setup_mappings", function(map)
     map('n', "à", ":ToggleTerm<cr>", opt)
     map('n', "<leader>o", ":Telescope lsp_workspace_symbols<cr>", opt)
     map('n', "<leader>td", ":Telescope lsp_document_diagnostics<cr>", opt)
+    map('n',"<C-h>",":%s/",opt)
+    map('v',"<C-h>",":s/",opt)
+    map('n',"<C-a>","GVgg",opt)
+    map('n',"<A-:>","q:i",opt)
+    map('n',"<A-/>","q/i",opt)
+    map( 'v',"*", [[y/\V<C-r>=escape(@",'/\')<CR><CR>]],opt)
+    map('n',"<leader>hh", [[:%s/<c-r><c-w>/<c-r><c-w>/g]],opt )
+    map('n',"<leader>hv", [[<c-v>]],opt )
+    map('n', "<C-S-Left>", "<C-W>h",opt)
+    map('n', "<C-S-Right>", "<C-W>l",opt)
+    map('n', "<C-S-Up>", "<C-W>k",opt)
+    map('n', "<C-S-Down>", "<C-W>j",opt)
+    -- map('n',"<leader>\"", "[[ysiw]],opt)
+    map('n',"<leader>ww", ":tabclose<cr>",opt) 
+    map('n',"<leader>wx", ":only<cr>",opt)
+    map('n',"<leader>wq", ":q<cr>",opt)
+    map('n',"<leader>wv", "<c-v>",opt)
+    map('n',"<leader>wa", ":tabnew<cr>",opt)
 
 
 end)
@@ -191,6 +209,7 @@ use {
     {'nvim-lua/plenary.nvim'},
   }
 }
+use{"mhinz/vim-grepper"}
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"

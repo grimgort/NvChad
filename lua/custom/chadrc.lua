@@ -143,7 +143,7 @@ M.plugins = {
    options = {
        lspconfig = {
          -- servers = {"html", "cssls"}
-         servers = {"clangd","jedi_language_server", "clangd", "cmake", "fortls", "sumneko_lua"},
+         servers = {"clangd","jedi_language_server", "clangd", "cmake", "fortls", "sumneko_lua","jsonls"},
       },
    },
 
