@@ -157,7 +157,8 @@ M.plugins = {
      nvim_cmp = "custom.plugin_confs.cmp",
      -- luasnip = "custom.plugin_confs.luasnip",
      -- lspconfig = "custom.plugin_confs.lspconfig",
-     telescope = "custom.plugin_confs.telescope"
+     telescope = "custom.plugin_confs.telescope",
+     gitsigns = "custom.plugin_confs.gitsigns",
    },
 }
 
