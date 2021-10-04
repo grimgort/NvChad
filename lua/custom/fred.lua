@@ -1,4 +1,5 @@
-
+vim.api.nvim_set_var("translator_target_lang","fr")
+vim.api.nvim_set_var("translator_proxy_url","http://proxy.onera:80")
 
 function _G.set_terminal_keymaps()
   local opts = {noremap = true}
