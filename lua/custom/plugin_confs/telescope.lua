@@ -6,6 +6,9 @@ end
   local actions = require("telescope.actions")
 telescope.setup {
    defaults = {
+     history = {
+
+     },
       vimgrep_arguments = {
          "rg",
          "--color=never",
@@ -55,7 +58,8 @@ telescope.setup {
   i = {
       ["<C-j>"] = actions.move_selection_next,
       ["<C-k>"] = actions.move_selection_previous,
-
+      ["<S-j>"] = require('telescope.actions').cycle_history_next,
+      ["<S-k>"] = require('telescope.actions').cycle_history_prev,
       ["²"] = actions.close,
 
       ["<Down>"] = actions.move_selection_next,
@@ -72,7 +76,7 @@ telescope.setup {
       ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
       ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
       ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-      ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+      ["<S-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
       ["<C-l>"] = actions.complete_tag,
       ["<C-?>"] = actions.which_key, -- keys from pressing <C-/>
     },
@@ -82,11 +86,13 @@ telescope.setup {
       ["<C-x>"] = actions.select_horizontal,
       ["<C-v>"] = actions.select_vertical,
       ["<C-t>"] = actions.select_tab,
+      ["<S-j>"] = require('telescope.actions').cycle_history_next,
+      ["<S-k>"] = require('telescope.actions').cycle_history_prev,
 
       ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
       ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
       ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-      ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+      ["<S-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
       -- TODO: This would be weird if we switch the ordering.
       ["j"] = actions.move_selection_next,
