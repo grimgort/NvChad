@@ -224,6 +224,23 @@ tnoremap <A-à> <C-\><C-n>10gt
    tmap <S-Insert>		<C-\><C-n>"+gP
 
 
+set swapfile
+set shortmess+=A " disable warniong message with swapfile
+if !isdirectory($HOME . "/.vim/.backup")
+   call mkdir($HOME . "/.vim/.backup", "p", 0700)
+endif
+if !isdirectory($HOME . "/.vim/.undo")
+   call mkdir($HOME . "/.vim/.undo", "p", 0700)
+endif
+if !isdirectory($HOME . "/.vim/.swp")
+   call mkdir($HOME . "/.vim/.swp", "p", 0700)
+endif
+
+set undofile
+set undodir=~/.vim/.undo//
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+
 ]]
 ,
 true)

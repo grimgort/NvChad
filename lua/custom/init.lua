@@ -1,7 +1,6 @@
 -- This is where you custom modules and plugins goes.
 -- See the wiki for a guide on how to extend NvChad
 
-require "custom.plugin_confs.lspconfig"
 local hooks = require "core.hooks"
 -- NOTE: To use this, make a copy with `cp example_init.lua init.lua`
 
@@ -211,6 +210,21 @@ use {
   }
 }
 use{"mhinz/vim-grepper"}
+use {
+    -- 'neovim/nvim-lsp-config',
+    'williamboman/nvim-lsp-installer',
+    -- config = "custom.plugin_confs.lsp_installer",
+}
+--[[ use {
+  "ahmedkhalf/project.nvim",
+  config = function()
+    require("project_nvim").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+} ]]
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"

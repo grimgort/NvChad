@@ -117,18 +117,19 @@ telescope.setup {
       media_files = {
          filetypes = { "png", "webp", "jpg", "jpeg" },
          find_cmd = "rg", -- find command (defaults to `fd`)
-      },
-   },
+      }
+    },
  
 }
 
 local extensions = { "themes", "terms", "fzf" }
+-- local extensions = { "themes", "terms", "fzf","projects" }
 local packer_repos = [["extensions", "telescope-fzf-native.nvim"]]
-
 if vim.fn.executable "ueberzug" == 1 then
    table.insert(extensions, "media_files")
    packer_repos = packer_repos .. ', "telescope-media-files.nvim"'
 end
+-- require('telescope').load_extension('projects')
 -- telescope.load_extension("mapper")
 pcall(function()
    for _, ext in ipairs(extensions) do

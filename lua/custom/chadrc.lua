@@ -145,6 +145,19 @@ M.plugins = {
          -- servers = {"html", "cssls"}
          servers = {"clangd","jedi_language_server", "clangd", "cmake", "fortls", "sumneko_lua","jsonls"},
       },
+      statusline = { -- statusline related options
+         -- these are filetypes, not pattern matched
+         -- shown filetypes will overrule hidden filetypes
+         hidden = {
+            "help",
+            "dashboard",
+            "NvimTree",
+            "terminal",
+         },
+         shown = {},
+         -- default, round , slant , block , arrow
+         style = "default",
+      },
    },
 
    -- To change the Packer `config` of a plugin that comes with NvChad,
