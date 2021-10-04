@@ -121,8 +121,7 @@ M.mappings.plugins = {
 
 -- NvChad included plugin options & overrides
 M.plugins = {
-  plugin_status ={
-      autosave = false, -- to autosave files
+  status ={
       blankline = true, -- show code scope with symbols
       bufferline = false, -- list open buffers up the top, easy switching too
       colorizer = true, -- color RGB, HEX, CSS, NAME color codes
@@ -132,10 +131,8 @@ M.plugins = {
       feline = true, -- statusline
       gitsigns = true, -- gitsigns in statusline
       lspsignature = true, -- lsp enhancements
-      neoformat = true, -- universal code formatter
       neoscroll = false, -- smooth scroll
       telescope_media = true, -- media previews within telescope finders
-      truezen = true, -- distraction free & minimalist UI mode
       vim_matchup = true, -- % operator enhancements
       cmp = true,
 
@@ -144,6 +141,7 @@ M.plugins = {
        lspconfig = {
          -- servers = {"html", "cssls"}
          servers = {"clangd","jedi_language_server", "clangd", "cmake", "fortls", "sumneko_lua","jsonls"},
+         setup_lspconf = "custom.plugin_confs.setup_lspconf",
       },
       statusline = { -- statusline related options
          -- these are filetypes, not pattern matched
