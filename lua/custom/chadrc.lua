@@ -94,13 +94,13 @@ M.mappings.plugins = {
    },
    -- multitool for finding & picking things
    telescope = {
-      buffers = "<leader>tb",
-      find_files = "<leader>tf",
-      git_commits = "<leader>tm",
-      git_status = "<leader>tt",
+      buffers = "<leader>fb",
+      find_files = "<leader>fa",
+      git_commits = "<leader>gtc",
+      git_status = "<leader>gts",
       help_tags = "<leader>th",
       live_grep = "<leader>tw",
-      oldfiles = "<leader>to",
+      oldfiles = "<leader>fo",
       themes = "<leader>th",
       telescope_media = {
          media_files = "<leader>fp",

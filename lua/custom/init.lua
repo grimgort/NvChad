@@ -38,9 +38,9 @@ hooks.add("setup_mappings", function(map)
    map('n', " gm", ":Neogit<cr>", opt)
    map('n', " ge", ":Gina commit --opener=\"to split\" --group=\"test\"<cr>", opt)
    map('n', " gg", ":Gina grep  --opener=tabnew --group=\"test\" -ie ", opt)
-   map('n', " gw", ":Gina grep  --opener=tabnew --group=\"test\" -ie \"\"\b<C-R><C-W>\b\"", opt)
-   map('n', " gx", ":Telescope live_grep<cr>", opt)
-   map('n', " gt", ":Gina tag<cr>", opt)
+   map('n', " gx", ":Gina grep  --opener=tabnew --group=\"test\" -ie \"\"\b<C-R><C-W>\b\"", opt)
+   map('n', " gw", ":Telescope live_grep<cr>", opt)
+   map('n', " gr", ":Gina tag<cr>", opt)
    map('n', " gd", ":Gvdiffsplit<cr>", opt)
    map('n', " gz", ":Gina branch<cr>", opt)
    map('n', " ga", ":Gina commit --amend --opener=\"to split\" --group=\"test\"<cr> ", opt)
@@ -192,10 +192,10 @@ use{'tjdevries/nlua.nvim'}
 use {"p00f/nvim-ts-rainbow", event = "BufRead"} 
 use{"kosayoda/nvim-lightbulb"}
 use{"tami5/sqlite.lua"}
-   use {
+   --[[ use {
       "hrsh7th/cmp-path",
       after = "cmp-nvim-lsp",
-   }
+   } ]]
    use {
       "hrsh7th/cmp-calc",
       after = "cmp-nvim-lsp",
@@ -213,7 +213,17 @@ use{"mhinz/vim-grepper"}
 use {
     -- 'neovim/nvim-lsp-config',
     'williamboman/nvim-lsp-installer',
-    -- config = "custom.plugin_confs.lsp_installer",
+    -- config = "custom.plugin_confs.nvim-lsp-installer"
+    config = function()
+      require("custom.plugin_confs.nvim_lsp_installer")
+    end
+}
+-- use{'kabouzeid/nvim-lspinstall'} "only linux"
+
+
+use{
+  'weilbith/nvim-code-action-menu',
+  cmd = 'CodeActionMenu',
 }
 --[[ use {
   "ahmedkhalf/project.nvim",

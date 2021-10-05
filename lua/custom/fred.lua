@@ -1,3 +1,6 @@
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+
+
 vim.api.nvim_set_var("translator_target_lang","fr")
 vim.api.nvim_set_var("translator_proxy_url","http://proxy.onera:80")
 
@@ -245,4 +248,6 @@ set directory=~/.vim/.swp//
 ]]
 ,
 true)
+
+
 
