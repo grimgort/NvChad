@@ -128,15 +128,14 @@ use {
     }
   end
 }
-use 'mfussenegger/nvim-dap'
-use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
-use "Pocco81/DAPInstall.nvim"
-local dap = require('dap')
-dap.adapters.lldb = {
-  type = 'executable',
-  command = '/usr/bin/lldb-vscode', -- adjust as needed
-  name = "lldb"
+use {'mfussenegger/nvim-dap',
+config = function()
+require("custom.plugin_confs.nvim_dap")
+end
 }
+use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+use {"Pocco81/DAPInstall.nvim"}
+
 use {
   -- Optional but recommended
   -- 'nvim-treesitter/nvim-treesitter',
@@ -161,7 +160,11 @@ use {
 --  -- vim_current_word#highlight_current_word = 0
 -- }
 }
-use {'voldikss/vim-translator'}
+use {'voldikss/vim-translator',
+config = function()
+  require("custom.plugin_confs.vim_translator")
+end
+}
 use{'airblade/vim-rooter'}
 use{'Shatur/neovim-cmake'}
 use {'sindrets/diffview.nvim'}

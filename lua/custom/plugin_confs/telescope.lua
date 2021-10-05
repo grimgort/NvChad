@@ -143,3 +143,4 @@ pcall(function()
    end
 end)
 
+vim.cmd('autocmd User TelescopePreviewerLoaded setlocal wrap')

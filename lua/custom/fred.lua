@@ -1,7 +1,5 @@
 
 
-vim.api.nvim_set_var("translator_target_lang","fr")
-vim.api.nvim_set_var("translator_proxy_url","http://proxy.onera:80")
 
 function _G.set_terminal_keymaps()
   local opts = {noremap = true}
@@ -15,7 +13,6 @@ end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
-vim.cmd('autocmd User TelescopePreviewerLoaded setlocal wrap')
 vim.api.nvim_command('let g:vim_current_word#highlight_current_word = 0')
 
     vim.api.nvim_set_keymap('n', "²", ":CloseAll<cr> ", {})
@@ -128,41 +125,6 @@ command! CloseAll call CloseWindo()
   set autoread
 ]],
 true)
-
-local dap = require('dap')
-dap.adapters.lldb = {
-  type = 'executable',
-  command = 'D:/ftarroux/scoop/apps/llvm/current/bin/lldb-vscode', -- adjust as needed
-  name = "lldb"
-}
-local dap = require('dap')
-dap.configurations.cpp = {
-  {
-    name = "Launch",
-    type = "lldb",
-    request = "launch",
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
-    cwd = '${workspaceFolder}',
-    stopOnEntry = false,
-    args = {},
-
-    -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
-    --
-    --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-    --
-    -- Otherwise you might get the following error:
-    --
-    --    Error on launch: Failed to attach to the target process
-    --
-    -- But you should be aware of the implications:
-    -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
-    runInTerminal = false,
-  },
-}
-dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp
 
 vim.api.nvim_command('set undofile')
 local result = vim.api.nvim_exec(
