@@ -190,7 +190,11 @@ use{'vim-scripts/DoxygenToolkit.vim'}
 use{'alexaandru/nvim-lspupdate'}
 use{'tjdevries/nlua.nvim'}
 use {"p00f/nvim-ts-rainbow", event = "BufRead"} 
-use{"kosayoda/nvim-lightbulb"}
+use{"kosayoda/nvim-lightbulb",
+   config = function()
+      require("custom.plugin_confs.nvim_lightbulb")
+    end
+}
 use{"tami5/sqlite.lua"}
    --[[ use {
       "hrsh7th/cmp-path",

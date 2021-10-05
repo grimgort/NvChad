@@ -1,4 +1,3 @@
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 
 
 vim.api.nvim_set_var("translator_target_lang","fr")
