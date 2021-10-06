@@ -75,6 +75,7 @@ hooks.add("setup_mappings", function(map)
     map('n',"<F3>",":MundoToggle<cr>",opt)
     map('n', "²", ":CloseAll<cr>", opt)
     map('i', "²", "<C-o>:CloseAll<cr>", opt)
+    map('t', "²", "<C-\\><C-n>CloseAll<cr>", opt)
 
 
 end)
