@@ -46,7 +46,7 @@ hooks.add("setup_mappings", function(map)
    map('n', " ga", ":Gina commit --amend --opener=\"to split\" --group=\"test\"<cr> ", opt)
    map('n', " gs", ":Gina status  --opener=\"to split\" --group=\"test\"<cr>", opt)
 
-   map('n', " a", ":ClangdSwitchSourceHeader<cr> ", opt)
+   map('n', " a", ":ClangdSwitchSourceHeader<cr>", opt)
     map('n', " wx", ":only<cr>", opt)
     map('n', "à", ":ToggleTerm<cr>", opt)
     -- map('n', "<leader>o", ":lua vim.lsp.buf.workspace_symbol()<cr>", opt)
@@ -70,6 +70,11 @@ hooks.add("setup_mappings", function(map)
     map('n',"<leader>wq", ":q<cr>",opt)
     map('n',"<leader>wv", "<c-v>",opt)
     map('n',"<leader>wa", ":tabnew<cr>",opt)
+
+    map('n',"<leader>na",":CodeActionMenu",opt)
+    map('n',"<F3>",":MundoToggle<cr>",opt)
+    map('n', "²", ":CloseAll<cr>", opt)
+    map('i', "²", "<C-o>:CloseAll<cr>", opt)
 
 
 end)
@@ -170,8 +175,25 @@ use{'Shatur/neovim-cmake'}
 use {'sindrets/diffview.nvim'}
 use {'lambdalisue/gina.vim'}
 use {'tpope/vim-fugitive'}
--- use {'mbbill/undotree'}
--- use {  'p00f/nvim-ts-rainbow'}
+-- use {'mbbill/undotree'} --replaced by mundo
+--[[ use{'frazrepo/vim-rainbow',
+config = function()
+vim.api.nvim_set_var("rainbow_active" , 1)
+end} --don't work with nvim-treesitter]]
+
+--[[ use {  'p00f/nvim-ts-rainbow',
+config = function()
+ require'nvim-treesitter.configs'.setup {
+  rainbow = {
+    enable = true,
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
+  }
+} -- bug 
+end
+}]]
 use {
   "ahmedkhalf/lsp-rooter.nvim",
   config = function()
