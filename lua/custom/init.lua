@@ -255,6 +255,7 @@ use{
   'weilbith/nvim-code-action-menu',
   cmd = 'CodeActionMenu',
 }
+
 --[[ use {
   "ahmedkhalf/project.nvim",
   config = function()
@@ -265,6 +266,12 @@ use{
     }
   end
 } ]]
+use {
+  'hoob3rt/lualine.nvim',
+  config = function()
+    require("custom.plugin_confs.lualine")
+  end
+}
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"

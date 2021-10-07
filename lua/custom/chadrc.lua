@@ -128,7 +128,8 @@ M.plugins = {
       comment = true, -- easily (un)comment code, language aware
       dashboard = false, -- NeoVim 'home screen' on open
       esc_insertmode = true, -- map to <ESC> with no lag
-      feline = true, -- statusline
+      feline = false, -- statusline
+      bufferline = false,
       gitsigns = true, -- gitsigns in statusline
       lspsignature = true, -- lsp enhancements
       neoscroll = false, -- smooth scroll
@@ -170,6 +171,7 @@ M.plugins = {
      -- lspconfig = "custom.plugin_confs.lspconfig",
      telescope = "custom.plugin_confs.telescope",
      gitsigns = "custom.plugin_confs.gitsigns",
+     -- feline = "custom.plugin_confs.feline"
    },
 }
 
