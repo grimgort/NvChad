@@ -76,6 +76,7 @@ hooks.add("setup_mappings", function(map)
     map('n', "²", ":CloseAll<cr>", opt)
     map('i', "²", "<C-o>:CloseAll<cr>", opt)
     map('t', "²", "<C-\\><C-n>CloseAll<cr>", opt)
+    map('n', "<F4>", ":SymbolsOutline<cr>", opt)
 
 
 end)
