@@ -80,10 +80,10 @@ hooks.add("setup_mappings", function(map)
 
 -- mapping not seems to work with lspconfig
 -- personal lsp config
-   map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts) 
    map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
    map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
    map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+   map("n", "<leader>nh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
    map("n", "<leader>ni", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
    map("n", "<leader>nk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
    map("n", "<leader>nwa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
@@ -102,6 +102,7 @@ hooks.add("setup_mappings", function(map)
 
 
    map("n", "<leader>q", "<cmd>copen<CR>", opts)
+   map("n", "<F7>", "<cmd>CMake build_all<CR>", opts)
 
 
 end)
@@ -198,7 +199,11 @@ config = function()
 end
 }
 use{'airblade/vim-rooter'}
-use{'Shatur/neovim-cmake'}
+use{'Shatur/neovim-cmake',
+config=function ()
+  require("custom.plugin_confs.neovim_cmake")
+end
+}
 use {'sindrets/diffview.nvim'}
 use {'lambdalisue/gina.vim'}
 use {'tpope/vim-fugitive'}
