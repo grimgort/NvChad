@@ -71,12 +71,34 @@ hooks.add("setup_mappings", function(map)
     map('n',"<leader>wv", "<c-v>",opt)
     map('n',"<leader>wa", ":tabnew<cr>",opt)
 
-    map('n',"<leader>na",":CodeActionMenu",opt)
+    map('n',"<leader>na",":CodeActionMenu<cr>",opt)
     map('n',"<F3>",":MundoToggle<cr>",opt)
     map('n', "²", ":CloseAll<cr>", opt)
     map('i', "²", "<C-o>:CloseAll<cr>", opt)
     map('t', "²", "<C-\\><C-n>CloseAll<cr>", opt)
     map('n', "<F4>", ":SymbolsOutline<cr>", opt)
+
+-- mapping not seems to work with lspconfig
+-- personal lsp config
+   map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts) 
+   map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+   map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+   map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+   map("n", "<leader>ni", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+   map("n", "<leader>nk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+   map("n", "<leader>nwa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+   map("n", "<leader>nwr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
+   map("n", "<leader>nwl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
+   map("n", "<leader>nt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+   map("n", "<leader>nr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+   map("n", "<leader>nz", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+   map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+   map("n", "<leader>ne", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+   map("n", "<leader>nk", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+   map("n", "<leader>nj", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+   map("n", "<leader>nq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+   map("n", "<leader>nf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+   map("v", "<leader>nz", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
 
 
 end)
@@ -113,7 +135,7 @@ use {"akinsho/toggleterm.nvim",
 config =function()
   require("toggleterm").setup {
   open_mapping = [[<C-à>]],
-  start_in_insert = true,
+  start_in_insert = false,
   insert_mappings = true, -- whether or not the open mapping applies in insert mode
   shell ="pwsh.exe", -- change the default shell
 }

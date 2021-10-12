@@ -1,10 +1,9 @@
 
-vim.api.nvim_set_option("scrolloff",5)
 
 function _G.set_terminal_keymaps()
   local opts = {noremap = true}
   -- vim.api.nvim_buf_set_keymap(0, 't', '²', "[[<C-\><C-n>]]CloseAll, opts)
-  -- vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
+  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
   -- vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
   -- vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
   vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<DOWN>]], opts)
@@ -16,10 +15,19 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 vim.api.nvim_command('let g:vim_current_word#highlight_current_word = 0')
 
+vim.api.nvim_set_option("scrolloff",5)
 
+-- vim.api.nvim_win_set_option(0,"foldenable")
+vim.api.nvim_win_set_option(0,"foldmethod","expr")
+vim.api.nvim_win_set_option(0,"foldlevel",20)
+vim.api.nvim_win_set_option(0,"foldexpr","nvim_treesitter#foldexpr()")
+-- vim.cmd("setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr()")
+
+-- vim.cmd('autocmd BufRead * "set foldmethod=expr"')
 
 local result = vim.api.nvim_exec(
 [[
+
  let g:term_buf = 0
   let g:term_win = 0
 let g:history_win_id = []
