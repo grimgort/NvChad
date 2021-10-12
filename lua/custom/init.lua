@@ -101,6 +101,9 @@ hooks.add("setup_mappings", function(map)
    map("v", "<leader>nz", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
 
 
+   map("n", "<leader>q", "<cmd>copen<CR>", opts)
+
+
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
