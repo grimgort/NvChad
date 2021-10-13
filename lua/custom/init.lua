@@ -137,12 +137,20 @@ use {
   }
 use {"akinsho/toggleterm.nvim",
 config =function()
+  if vim.loop.os_uname().sysname=="Windows_NT" then
   require("toggleterm").setup {
   open_mapping = [[<C-à>]],
   start_in_insert = false,
   insert_mappings = true, -- whether or not the open mapping applies in insert mode
   shell ="pwsh.exe", -- change the default shell
+}else
+  require("toggleterm").setup {
+  open_mapping = [[<C-à>]],
+  start_in_insert = false,
+  insert_mappings = true, -- whether or not the open mapping applies in insert mode
+  -- shell ="pwsh.exe", -- change the default shell
 }
+  end
 end
 }
 use {
