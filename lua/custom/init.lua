@@ -207,8 +207,7 @@ config = function()
 end
 }
 use{'airblade/vim-rooter'}
-use{'Shatur/neovim-cmake',
-config=function ()
+use{'Shatur/neovim-cmake',config=function ()
   require("custom.plugin_confs.neovim_cmake")
 end
 }
