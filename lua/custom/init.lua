@@ -308,8 +308,18 @@ use {
   'hoob3rt/lualine.nvim',
   config = function()
     require("custom.plugin_confs.lualine")
-  end
+  end,
 }
+
+use{
+'nvim-telescope/telescope-project.nvim',
+  after="telescope.nvim",
+config = function()
+  require("telescope").load_extension "project"
+end,
+}
+
+
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
