@@ -1,4 +1,11 @@
 require("nvim-lsp-installer").settings {
+    pip = {
+        -- These args will be added to `pip install` calls. Note that setting extra args might impact intended behavior
+        -- and is not recommended.
+        --
+        -- Example: { "--proxy", "https://proxyserver" }
+        install_args = { "--proxy", "http://proxy.onera:80"},
+    },
     --[[ ui = {
         icons = {
             server_installed = "✓",
