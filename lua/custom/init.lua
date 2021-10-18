@@ -103,6 +103,9 @@ hooks.add("setup_mappings", function(map)
 
    map("n", "<leader>q", "<cmd>copen<CR>", opts)
    map("n", "<F7>", "<cmd>CMake build_all<CR>", opts)
+   map("n", "<F7>", "<cmd>CMake build_all<CR>", opts)
+
+   map("n", "<leader>tp", ":lua require'telescope'.extensions.project.project{}<CR>", opts)
 
 
 end)
