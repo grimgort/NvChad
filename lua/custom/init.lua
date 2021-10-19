@@ -32,7 +32,7 @@ hooks.add("setup_mappings", function(map)
    map("n", " cd", ":cd %:p:h<cr>", opt)
    map("n", " gf", ":Telescope git_files<cr>", opt)
    map("n", " ff", ":Telescope git_files<cr>", opt)
-   map("n", " ee", ":NvimTreeFocus<cr>", opt)
+   map("n", " ee", ":NvimTreeToggle<cr>", opt)
    map("n", " ef", ":NvimTreeFindFile<cr>", opt)
    -- GIT mapping
    map("n", " gm", ":Neogit<cr>", opt)
@@ -45,6 +45,8 @@ hooks.add("setup_mappings", function(map)
    map("n", " gz", ":Gina branch<cr>", opt)
    map("n", " ga", ':Gina commit --amend --opener="to split" --group="test"<cr> ', opt)
    map("n", " gs", ':Gina status  --opener="to split" --group="test"<cr>', opt)
+   map("n", "<leader>gh", ':diffget //3<cr>', opt)
+   map("n", "<leader>gl", ':diffget //2<cr>', opt)
 
    map("n", " a", ":ClangdSwitchSourceHeader<cr>", opt)
    map("n", " wx", ":only<cr>", opt)
@@ -334,6 +336,7 @@ end} --don't work with nvim-treesitter]]
    }
    use { "nacro90/numb.nvim" }
    -- use { "glepnir/lspsaga.nvim" }
+   -- use{"christoomey/vim-conflicted"}
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"

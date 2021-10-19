@@ -86,7 +86,7 @@ M.mappings.plugins = {
    -- file explorer/tree
    nvimtree = {
       toggle = "<C-n>",
-      focus = "<leader>e",
+      -- focus = "<leader>e",
    },
    -- universal code formatter
    neoformat = {
@@ -171,6 +171,7 @@ M.plugins = {
      -- lspconfig = "custom.plugin_confs.lspconfig",
      telescope = "custom.plugin_confs.telescope",
      gitsigns = "custom.plugin_confs.gitsigns",
+     nvim_tree = "custom.plugin_confs.nvimtree",
      -- feline = "custom.plugin_confs.feline"
    },
 }
