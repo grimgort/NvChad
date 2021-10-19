@@ -186,7 +186,7 @@ use {
   'lewis6991/spellsitter.nvim',
 }
 use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-require'nvim-treesitter.configs'.setup {
+--[[ require'nvim-treesitter.configs'.setup {
   rainbow = {
     enable = true,
     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
@@ -194,7 +194,7 @@ require'nvim-treesitter.configs'.setup {
     colors = {}, -- table of hex strings
     termcolors = {} -- table of colour name strings
   }
-}
+} ]]
 use {'simrat39/symbols-outline.nvim'}
 use {'b3nj5m1n/kommentary'}
 use {
@@ -223,7 +223,8 @@ config = function()
 vim.api.nvim_set_var("rainbow_active" , 1)
 end} --don't work with nvim-treesitter]]
 
---[[ use {  'p00f/nvim-ts-rainbow',
+use {  'p00f/nvim-ts-rainbow',
+after="nvim-treesitter",
 config = function()
  require'nvim-treesitter.configs'.setup {
   rainbow = {
@@ -235,7 +236,7 @@ config = function()
   }
 } -- bug 
 end
-}]]
+}
 use {
   "ahmedkhalf/lsp-rooter.nvim",
   config = function()
@@ -256,7 +257,7 @@ use {'kevinhwang91/nvim-hlslens'}
 use{'vim-scripts/DoxygenToolkit.vim'}
 use{'alexaandru/nvim-lspupdate'}
 use{'tjdevries/nlua.nvim'}
-use {"p00f/nvim-ts-rainbow", event = "BufRead"} 
+-- use {"p00f/nvim-ts-rainbow", event = "BufRead"} 
 use{"kosayoda/nvim-lightbulb",
    config = function()
       require("custom.plugin_confs.nvim_lightbulb")
@@ -321,6 +322,8 @@ config = function()
   require("telescope").load_extension "project"
 end,
 }
+
+use{'sbdchd/neoformat'}
 
 
 end)
