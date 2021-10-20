@@ -109,6 +109,7 @@ hooks.add("setup_mappings", function(map)
    map("n", "<F7>", "<cmd>CMake build_all<CR>", opts)
 
    map("n", "<leader>tp", ":lua require'telescope'.extensions.project.project{}<CR>", opts)
+   map("n","<leader>s",":e#<cr>",opts)
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
@@ -337,6 +338,7 @@ end} --don't work with nvim-treesitter]]
       end,
    }
    use { "f-person/git-blame.nvim" }
+   use{"junegunn/vim-easy-align"}
    -- use{"tveskag/nvim-blame-line"}
    -- use { "glepnir/lspsaga.nvim" }
    -- use{"christoomey/vim-conflicted"}

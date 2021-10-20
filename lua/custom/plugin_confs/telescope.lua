@@ -5,6 +5,13 @@ end
 
   local actions = require("telescope.actions")
 telescope.setup {
+  pickers = {
+        buffers = {
+          sort_mru = true,
+            --[[ ignore_current_buffer = true,
+            sort_lastused = true, ]]
+        },
+  },
    defaults = {
      history = {
 
