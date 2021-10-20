@@ -16,6 +16,7 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 vim.cmd('autocmd FocusGained * checktime') --auto reload file if modified by another apps
 vim.api.nvim_command('let g:vim_current_word#highlight_current_word = 0')
 vim.api.nvim_command('let g:asyncrun_open = 8') -- alow to open quickfix list for asyncrun command automatically
+vim.cmd('autocmd FocusGained * set ww =""') --auto reload file if modified by another apps
 
 vim.api.nvim_set_option("scrolloff",5)
 
