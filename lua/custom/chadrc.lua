@@ -172,6 +172,7 @@ M.plugins = {
      telescope = "custom.plugin_confs.telescope",
      gitsigns = "custom.plugin_confs.gitsigns",
      nvim_tree = "custom.plugin_confs.nvimtree",
+     nvim_treesitter = "custom.plugin_confs.treesitter",
      -- feline = "custom.plugin_confs.feline"
    },
 }

@@ -339,6 +339,7 @@ end} --don't work with nvim-treesitter]]
    }
    use { "f-person/git-blame.nvim" }
    use{"junegunn/vim-easy-align"}
+   use{"nvim-treesitter/nvim-treesitter-textobjects",after="nvim-treesitter"}
    -- use{"tveskag/nvim-blame-line"}
    -- use { "glepnir/lspsaga.nvim" }
    -- use{"christoomey/vim-conflicted"}
