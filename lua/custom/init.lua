@@ -47,6 +47,8 @@ hooks.add("setup_mappings", function(map)
    map("n", " gs", ':Gina status  --opener="to split" --group="test"<cr>', opt)
    map("n", "<leader>gh", ':diffget //3<cr>', opt)
    map("n", "<leader>gl", ':diffget //2<cr>', opt)
+   map("n","<leader>gu",":GitBlameToggle<cr>",opt)
+   map("n", " gq", ":DiffviewFileHistory<cr>", opt)
 
    map("n", " a", ":ClangdSwitchSourceHeader<cr>", opt)
    map("n", " wx", ":only<cr>", opt)
@@ -335,6 +337,9 @@ end} --don't work with nvim-treesitter]]
       after = "nvim-treesitter",
    }
    use { "nacro90/numb.nvim" }
+  require('numb').setup()
+   use {"f-person/git-blame.nvim"}
+   -- use{"tveskag/nvim-blame-line"}
    -- use { "glepnir/lspsaga.nvim" }
    -- use{"christoomey/vim-conflicted"}
 end)
