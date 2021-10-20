@@ -45,9 +45,9 @@ hooks.add("setup_mappings", function(map)
    map("n", " gz", ":Gina branch<cr>", opt)
    map("n", " ga", ':Gina commit --amend --opener="to split" --group="test"<cr> ', opt)
    map("n", " gs", ':Gina status  --opener="to split" --group="test"<cr>', opt)
-   map("n", "<leader>gh", ':diffget //3<cr>', opt)
-   map("n", "<leader>gl", ':diffget //2<cr>', opt)
-   map("n","<leader>gu",":GitBlameToggle<cr>",opt)
+   map("n", "<leader>gh", ":diffget //3<cr>", opt)
+   map("n", "<leader>gl", ":diffget //2<cr>", opt)
+   map("n", "<leader>gu", ":GitBlameToggle<cr>", opt)
    map("n", " gq", ":DiffviewFileHistory<cr>", opt)
 
    map("n", " a", ":ClangdSwitchSourceHeader<cr>", opt)
@@ -306,16 +306,6 @@ end} --don't work with nvim-treesitter]]
       cmd = "CodeActionMenu",
    }
 
-   --[[ use {
-  "ahmedkhalf/project.nvim",
-  config = function()
-    require("project_nvim").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-  end
-} ]]
    use {
       "hoob3rt/lualine.nvim",
       config = function()
@@ -336,9 +326,17 @@ end} --don't work with nvim-treesitter]]
       "haringsrob/nvim_context_vt",
       after = "nvim-treesitter",
    }
-   use { "nacro90/numb.nvim" }
-  require('numb').setup()
-   use {"f-person/git-blame.nvim"}
+   use {
+      "nacro90/numb.nvim",
+      config = function()
+         require("numb").setup {
+            show_numbers = true, -- Enable 'number' for the window while peeking
+            show_cursorline = true, -- Enable 'cursorline' for the window while peeking
+            number_only = false, -- Peek only when the command is only a number instead of when it starts with a number
+         }
+      end,
+   }
+   use { "f-person/git-blame.nvim" }
    -- use{"tveskag/nvim-blame-line"}
    -- use { "glepnir/lspsaga.nvim" }
    -- use{"christoomey/vim-conflicted"}
