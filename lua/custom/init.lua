@@ -21,102 +21,118 @@ local hooks = require "core.hooks"
 -- example below:
 
 hooks.add("setup_mappings", function(map)
-   -- map("n", "<leader>cc", "gg0vG$d", opt) -- example to delete the buffer
-   map("n", " gy", ":Gina tag<cr>", opt)
-   map("n", " wx", ":only<cr>", opt)
-   map("n", " gb", ":Gina branch<cr>", opt)
-   map("n", " go", ":Gina log --graph --all<cr>", opt)
-   map("n", " gp", ":Gina pull<cr>", opt)
-   map("n", " g*", ":Gina push<cr>", opt)
-   map("n", "e", ":HopChar1<cr>", opt)
-   map("n", " cd", ":cd %:p:h<cr>", opt)
-   map("n", " gf", ":Telescope git_files<cr>", opt)
-   map("n", " ff", ":Telescope git_files<cr>", opt)
-   map("n", " ee", ":NvimTreeToggle<cr>", opt)
-   map("n", " ef", ":NvimTreeFindFile<cr>", opt)
+   -- vim.api.nvim_set_keymap("n", "<leader>cc", "gg0vG$d", opt) -- example to delete the buffer
+   local opt = {}
+   local opts = {}
+   vim.api.nvim_set_keymap("n", " gy", ":Gina tag<cr>", opt)
+   vim.api.nvim_set_keymap("n", " wx", ":only<cr>", opt)
+   vim.api.nvim_set_keymap("n", " gb", ":Gina branch<cr>", opt)
+   vim.api.nvim_set_keymap("n", " go", ":Gina log --graph --all<cr>", opt)
+   vim.api.nvim_set_keymap("n", " gp", ":Gina pull<cr>", opt)
+   vim.api.nvim_set_keymap("n", " g*", ":Gina push<cr>", opt)
+   vim.api.nvim_set_keymap("n", "e", ":HopChar1<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>hj", ":HopLineStartAC<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>hl", ":HopWordAC<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>hk", ":HopLineStartBC<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>hh", ":HopWordBC<cr>", opt)
+   vim.api.nvim_set_keymap("n", " cd", ":cd %:p:h<cr>", opt)
+   vim.api.nvim_set_keymap("n", " gf", ":Telescope git_files<cr>", opt)
+   vim.api.nvim_set_keymap("n", " ff", ":Telescope git_files<cr>", opt)
+   vim.api.nvim_set_keymap("n", " ee", ":NvimTreeToggle<cr>", opt)
+   vim.api.nvim_set_keymap("n", " ef", ":NvimTreeFindFile<cr>", opt)
    -- GIT mapping
-   map("n", " gm", ":Neogit<cr>", opt)
-   map("n", " ge", ':Gina commit --opener="to split" --group="test"<cr>', opt)
-   map("n", " gg", ':Gina grep  --opener=tabnew --group="test" -ie ', opt)
-   map("n", " gx", ':Gina grep  --opener=tabnew --group="test" -ie ""\b<C-R><C-W>\b"', opt)
-   map("n", " gw", ":Telescope live_grep<cr>", opt)
-   map("n", " gr", ":Gina tag<cr>", opt)
-   map("n", " gd", ":Gvdiffsplit<cr>", opt)
-   map("n", " gz", ":Gina branch<cr>", opt)
-   map("n", " ga", ':Gina commit --amend --opener="to split" --group="test"<cr> ', opt)
-   map("n", " gs", ':Gina status  --opener="to split" --group="test"<cr>', opt)
-   map("n", "<leader>gh", ":diffget //3<cr>", opt)
-   map("n", "<leader>gl", ":diffget //2<cr>", opt)
-   map("n", "<leader>gu", ":GitBlameToggle<cr>", opt)
-   map("n", " gq", ":DiffviewFileHistory<cr>", opt)
+   vim.api.nvim_set_keymap("n", " gm", ":Neogit<cr>", opt)
+   vim.api.nvim_set_keymap("n", " ge", ':Gina commit --opener="to split" --group="test"<cr>', opt)
+   vim.api.nvim_set_keymap("n", " gg", ':Gina grep  --opener=tabnew --group="test" -ie ', opt)
+   vim.api.nvim_set_keymap("n", " gx", ':Gina grep  --opener=tabnew --group="test" -ie ""\b<C-R><C-W>\b"', opt)
+   vim.api.nvim_set_keymap("n", " gw", ":Telescope live_grep<cr>", opt)
+   vim.api.nvim_set_keymap("n", " gr", ":Gina tag<cr>", opt)
+   vim.api.nvim_set_keymap("n", " gd", ":Gvdiffsplit<cr>", opt)
+   vim.api.nvim_set_keymap("n", " gz", ":Gina branch<cr>", opt)
+   vim.api.nvim_set_keymap("n", " ga", ':Gina commit --amend --opener="to split" --group="test"<cr> ', opt)
+   vim.api.nvim_set_keymap("n", " gs", ':Gina status  --opener="to split" --group="test"<cr>', opt)
+   vim.api.nvim_set_keymap("n", "<leader>gh", ":diffget //3<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>gl", ":diffget //2<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>gu", ":GitBlameToggle<cr>", opt)
+   vim.api.nvim_set_keymap("n", " gq", ":DiffviewFileHistory<cr>", opt)
 
-   map("n", " a", ":ClangdSwitchSourceHeader<cr>", opt)
-   map("n", " wx", ":only<cr>", opt)
-   map("n", "à", ":ToggleTerm<cr>", opt)
-   -- map('n', "<leader>o", ":lua vim.lsp.buf.workspace_symbol()<cr>", opt)
-   map("n", "<leader>o", ":Telescope lsp_dynamic_workspace_symbols<cr>", opt)
-   map("n", "<leader>td", ":Telescope lsp_document_diagnostics<cr>", opt)
-   map("n", "<C-h>", ":%s/", opt)
-   map("v", "<C-h>", ":s/", opt)
-   map("n", "<C-a>", "GVgg", opt)
-   map("n", "<A-:>", "q:i", opt)
-   map("n", "<A-/>", "q/i", opt)
-   map("v", "*", [[y/\V<C-r>=escape(@",'/\')<CR><CR>]], opt)
-   map("n", "<leader>hh", [[:%s/<c-r><c-w>/<c-r><c-w>/g]], opt)
-   map("n", "<leader>hv", [[<c-v>]], opt)
-   map("n", "<C-S-Left>", "<C-W>h", opt)
-   map("n", "<C-S-Right>", "<C-W>l", opt)
-   map("n", "<C-S-Up>", "<C-W>k", opt)
-   map("n", "<C-S-Down>", "<C-W>j", opt)
-   -- map('n',"<leader>\"", "[[ysiw]],opt)
-   map("n", "<leader>ww", ":tabclose<cr>", opt)
-   map("n", "<leader>wx", ":only<cr>", opt)
-   map("n", "<leader>wq", ":q<cr>", opt)
-   map("n", "<leader>wv", "<c-v>", opt)
-   map("n", "<leader>wa", ":tabnew<cr>", opt)
+   vim.api.nvim_set_keymap("n", " a", ":ClangdSwitchSourceHeader<cr>", opt)
+   vim.api.nvim_set_keymap("n", " wx", ":only<cr>", opt)
+   -- vim.api.nvim_set_keymap("n", "ç", ":ToggleTerm<cr>", opt)
+   -- vim.api.nvim_set_keymap('n', "<leader>o", ":lua vim.lsp.buf.workspace_symbol()<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>o", ":Telescope lsp_dynamic_workspace_symbols<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>td", ":Telescope lsp_document_diagnostics<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<C-h>", ":%s/", opt)
+   vim.api.nvim_set_keymap("v", "<C-h>", ":s/", opt)
+   vim.api.nvim_set_keymap("n", "<C-a>", "GVgg", opt)
+   vim.api.nvim_set_keymap("n", "<A-:>", "q:i", opt)
+   vim.api.nvim_set_keymap("n", "<A-/>", "q/i", opt)
+   vim.api.nvim_set_keymap("n", "<leader>hv", [[<c-v>]], opt)
+   vim.api.nvim_set_keymap("n", "<C-S-Left>", "<C-W>h", opt)
+   vim.api.nvim_set_keymap("n", "<C-S-Right>", "<C-W>l", opt)
+   vim.api.nvim_set_keymap("n", "<C-S-Up>", "<C-W>k", opt)
+   vim.api.nvim_set_keymap("n", "<C-S-Down>", "<C-W>j", opt)
+   -- vim.api.nvim_set_keymap('n',"<leader>\"", "[[ysiw]],opt)
+   vim.api.nvim_set_keymap("n", "<leader>ww", ":tabclose<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>wx", ":only<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>wq", ":q<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>wv", "<c-v>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>wa", ":tabnew<cr>", opt)
 
-   map("n", "<leader>na", ":CodeActionMenu<cr>", opt)
-   map("n", "<F3>", ":MundoToggle<cr>", opt)
-   map("n", "²", ":CloseAll<cr>", opt)
-   map("i", "²", "<C-o>:CloseAll<cr>", opt)
-   map("t", "²", "<C-\\><C-n>CloseAll<cr>", opt)
-   map("n", "<F4>", ":SymbolsOutline<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>na", ":CodeActionMenu<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<F3>", ":MundoToggle<cr>", opt)
+   vim.api.nvim_set_keymap("n", "²", ":CloseAll<cr>", opt)
+   vim.api.nvim_set_keymap("i", "²", "<C-o>:CloseAll<cr>", opt)
+   vim.api.nvim_set_keymap("t", "²", "<C-\\><C-n>CloseAll<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<F4>", ":SymbolsOutline<cr>", opt)
 
    -- mapping not seems to work with lspconfig
    -- personal lsp config
-   map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-   map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-   map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-   map("n", "<leader>nh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-   map("n", "<leader>ni", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-   map("n", "<leader>nk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-   map("n", "<leader>nwa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
-   map("n", "<leader>nwr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
-   map("n", "<leader>nwl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
-   map("n", "<leader>nt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-   map("n", "<leader>nr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-   map("n", "<leader>nz", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-   map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-   map("n", "<leader>ne", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-   map("n", "<leader>nk", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-   map("n", "<leader>nj", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-   map("n", "<leader>nq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-   map("n", "<leader>nf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-   map("v", "<leader>nz", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>nh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>ni", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>nk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>nwa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>nwr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
+   vim.api.nvim_set_keymap(
+      "n",
+      "<leader>nwl",
+      "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
+      opts
+   )
+   vim.api.nvim_set_keymap("n", "<leader>nt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>nr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>nz", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>ne", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>nk", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>nj", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>nq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>nf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+   vim.api.nvim_set_keymap("v", "<leader>nz", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
 
-   map("n", "<leader>q", "<cmd>copen<CR>", opts)
-   map("n", "<F7>", "<cmd>CMake build_all<CR>", opts)
-   map("n", "<F7>", "<cmd>CMake build_all<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>copen<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<F7>", "<cmd>CMake build_all<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<F7>", "<cmd>CMake build_all<CR>", opts)
 
-   map("n", "<leader>tp", ":lua require'telescope'.extensions.project.project{}<CR>", opts)
-   map("n","<leader>s",":e#<cr>",opts)
+   vim.api.nvim_set_keymap("n", "<leader>tp", ":lua require'telescope'.extensions.project.project{}<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>s", ":e#<cr>", opts)
+
+   vim.api.nvim_set_keymap("c", "<C-k>", "<Up>", {})
+   vim.api.nvim_set_keymap("c", "<C-j>", "<Down>", {})
+
+   vim.api.nvim_set_keymap("v", "*", [[y/\V<C-r>=escape(@",'/\')<CR><CR>]], {})
+   vim.api.nvim_set_keymap("n", "<leader>hh", [[:%s/<c-r><c-w>/<c-r><c-w>/g]], {})
+   vim.api.nvim_set_keymap("n", "<leader>gc", ":Telescope grep_string<cr>", {})
+   -- vim.api.nvim_set_keymap("c","<S-k>","<Up>",opts)
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
 -- NOTE: we heavily suggest using Packer's lazy loading (with the 'event' field)
 -- see: https://github.com/wbthomason/packer.nvim
 -- examples below:
-
 hooks.add("install_plugins", function(use)
    --[[ use {
       "max397574/better-escape.nvim",
@@ -134,6 +150,23 @@ hooks.add("install_plugins", function(use)
       "folke/which-key.nvim",
       config = function()
          require("which-key").setup {
+
+            --[[ key_labels = {
+    ["<space>"] = "SPC",
+    ["<CR>"] = "RET",
+    ["<tab>"] = "TAB",
+    ["g"] = "g_git",
+    ["h"] = "h_hop",
+    ["!"] = "!_poubelle",
+    ["b"] = "b_dashboard",
+    ["c"] = "c_directory",
+    ["f"] = "f_find_files",
+    ["n"] = "n_LSP",
+    ["t"] = "t_telescope",
+    ["u"] = "u_NVCHAD",
+    ["w"] = "w_other",
+} ]]
+            -- require("which-key").register({g={name="git"}})
             -- your configuration comes here
             -- or leave it empty to use the default settings
             -- refer to the configuration section below
@@ -145,14 +178,14 @@ hooks.add("install_plugins", function(use)
       config = function()
          if vim.loop.os_uname().sysname == "Windows_NT" then
             require("toggleterm").setup {
-               open_mapping = [[<C-à>]],
+               open_mapping = [[ç]],
                start_in_insert = false,
                insert_mappings = true, -- whether or not the open mapping applies in insert mode
                shell = "pwsh.exe", -- change the default shell
             }
          else
             require("toggleterm").setup {
-               open_mapping = [[<C-à>]],
+               open_mapping = [[ç]],
                start_in_insert = false,
                insert_mappings = true, -- whether or not the open mapping applies in insert mode
                -- shell ="pwsh.exe", -- change the default shell
@@ -201,7 +234,14 @@ hooks.add("install_plugins", function(use)
   }
 } ]]
    use { "simrat39/symbols-outline.nvim" }
-   use { "b3nj5m1n/kommentary" }
+   use {
+      "b3nj5m1n/kommentary",
+      config = function()
+         require("kommentary.config").configure_language({ "c", "lua", "cpp" }, {
+            prefer_single_line_comments = true,
+         })
+      end,
+   }
    use {
       "dominikduda/vim_current_word",
       -- ,require('vim_current_word').setup{
@@ -215,7 +255,7 @@ hooks.add("install_plugins", function(use)
          require "custom.plugin_confs.vim_translator"
       end,
    }
-   use { "airblade/vim-rooter" }
+   -- use { "airblade/vim-rooter" } -- no work properly. no git project file
    use {
       "Shatur/neovim-cmake",
       config = function()
@@ -259,6 +299,7 @@ end} --don't work with nvim-treesitter]]
    -- use {'alexaandru/nvim-lspupdate'}
    -- use {'williamboman/nvim-lsp-installer'}
    use { "skywind3000/asyncrun.vim" }
+   use { "skywind3000/asynctasks.vim" }
    use { "gelguy/wilder.nvim" }
    use { "simnalamburt/vim-mundo" }
    use { "rhysd/committia.vim" }
@@ -338,10 +379,116 @@ end} --don't work with nvim-treesitter]]
       end,
    }
    use { "f-person/git-blame.nvim" }
-   use{"junegunn/vim-easy-align"}
-   use{"nvim-treesitter/nvim-treesitter-textobjects",after="nvim-treesitter"}
+   use { "junegunn/vim-easy-align" }
+   use { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" }
+   use {
+      "chipsenkbeil/distant.nvim",
+      config = function()
+         require("distant").setup {
+            -- Applies Chip's personal settings to every machine you connect to
+            --
+            -- 1. Ensures that distant servers terminate with no connections
+            -- 2. Provides navigation bindings for remote directories
+            -- 3. Provides keybinding to jump into a remote file's parent directory
+            ["*"] = require("distant.settings").chip_default(),
+         }
+      end,
+   }
    -- use{"tveskag/nvim-blame-line"}
    -- use { "glepnir/lspsaga.nvim" }
+   use {
+      "rmagatti/goto-preview",
+      config = function()
+         require("goto-preview").setup {
+            width = 120, -- Width of the floating window
+            height = 15, -- Height of the floating window
+            border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" }, -- Border characters of the floating window
+            default_mappings = true, -- Bind default mappings
+            debug = false, -- Print debug information
+            opacity = nil, -- 0-100 opacity level of the floating window where 100 is fully transparent.
+            post_open_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
+         }
+      end,
+   }
+   use {
+      "mhinz/vim-startify",
+   }
+   use {
+      "GustavoKatel/telescope-asynctasks.nvim",
+      after = "telescope.nvim",
+      config = function()
+         require("telescope").load_extension "asynctasks"
+      end,
+      requires = {
+         { "nvim-telescope/telescope.nvim" },
+         { "nvim-lua/popup.nvim" },
+         { "nvim-lua/plenary.nvim" },
+         { "skywind3000/asyncrun.vim" },
+         { "skywind3000/asynctasks.vim" },
+      },
+   }
+   use { "nvim-lua/popup.nvim" }
+   use {
+      "winston0410/commented.nvim",
+      config = function()
+         local opts = {
+            comment_padding = " ", -- padding between starting and ending comment symbols
+            keybindings = { n = "<leader>c", v = "<leader>c", nl = "<leader>cc" }, -- what key to toggle comment, nl is for mapping <leader>c$, just like dd for d
+            prefer_block_comment = false, -- Set it to true to automatically use block comment when multiple lines are selected
+            set_keybindings = true, -- whether or not keybinding is set on setup
+            ex_mode_cmd = "Comment", -- command for commenting in ex-mode, set it null to not set the command initially.
+         }
+         require("commented").setup(opts)
+      end,
+   }
+   --[[ use {
+      "rmagatti/auto-session",
+      after = "telescope.nvim",
+
+      config = function()
+         local opts = {
+            log_level = "info",
+            auto_session_enable_last_session = false,
+            auto_session_root_dir = vim.fn.stdpath "data" .. "/sessions/",
+            auto_session_enabled = true,
+            auto_save_enabled = nil,
+            auto_restore_enabled = nil,
+            auto_session_suppress_dirs = nil,
+         }
+
+         -- require("auto-session").setup(opts)
+         require("auto-session").setup()
+
+         -- vim.o.sessionoptions = "blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal"
+      end,
+   } ]]
+
+   --[[ use {
+      "rmagatti/session-lens",
+      requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+      config = function()
+         require("session-lens").setup {
+         }
+         require("telescope").load_extension "session-lens"
+      end,
+   }
+ ]]
+   --[[ use {
+      "Shatur/neovim-session-manager",
+      after = "telescope.nvim",
+      config = function()
+         local Path = require "plenary.path"
+         require("session_manager").setup {
+            sessions_dir = Path:new(vim.fn.stdpath "data", "sessions"), -- The directory where the session files will be saved.
+            path_replacer = "__", -- The character to which the path separator will be replaced for session files.
+            colon_replacer = "++", -- The character to which the colon symbol will be replaced for session files.
+            autoload_last_session = true, -- Automatically load last session on startup is started without arguments.
+            autosave_last_session = true, -- Automatically save last session on exit.
+            autosave_ignore_not_normal = true, -- Plugin will not save a session when no writable and listed buffers are opened.
+         }
+require("telescope").load_extension "neovim-session-manager"
+      end,
+   } ]]
    -- use{"christoomey/vim-conflicted"}
 end)
 

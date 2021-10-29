@@ -125,8 +125,8 @@ M.plugins = {
       blankline = true, -- show code scope with symbols
       bufferline = false, -- list open buffers up the top, easy switching too
       colorizer = true, -- color RGB, HEX, CSS, NAME color codes
-      comment = true, -- easily (un)comment code, language aware
-      dashboard = true, -- NeoVim 'home screen' on open
+      comment = false, -- easily (un)comment code, language aware
+      dashboard = false, -- NeoVim 'home screen' on open
       esc_insertmode = true, -- map to <ESC> with no lag
       feline = false, -- statusline
       bufferline = false,
@@ -173,6 +173,7 @@ M.plugins = {
      gitsigns = "custom.plugin_confs.gitsigns",
      nvim_tree = "custom.plugin_confs.nvimtree",
      nvim_treesitter = "custom.plugin_confs.treesitter",
+     dashboard = "custom.plugin_confs.dashboard",
      -- feline = "custom.plugin_confs.feline"
    },
 }

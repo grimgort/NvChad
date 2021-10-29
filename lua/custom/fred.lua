@@ -127,6 +127,10 @@ function! CloseWindo()
   "echom(saved_winnr)
   "echo saved_winnr
   call win_gotoid(saved_winnr)
+  "
+  "close plugin rmagatti/goto-preview
+  "
+silent! :lua require('goto-preview').close_all_win()
 endfunction
 
 silent! command! CloseAll call CloseWindo()

@@ -63,11 +63,13 @@ cmp.setup {
       { name = "luasnip" },
       { name = "cmp_tabnine" },
       { name = "nvim_lua" },
-      { name = "buffer", opts = {
+     { name = "buffer"},
+
+      --[[ { name = "buffer", opts = {
          get_bufnrs = function()
             return vim.api.nvim_list_bufs()
          end,
-      } },
+      } }, ]]
       { name = "calc" },
       { name = "emoji" },
       { name = "treesitter" },
