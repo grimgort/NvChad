@@ -190,14 +190,11 @@ tnoremap <A-à> <C-\><C-n>10gt
     vnoremap <C-Insert> "+y
 
     " CTRL-V and SHIFT-Insert are Paste
-    map <C-V>		"+gP
     map <S-Insert>		"+gP
 
-    cmap <C-V>		<C-R>+
     cmap <S-Insert>		<C-R>+
 
 
-   tmap <C-V>		<C-\><C-n>"+gP
    tmap <S-Insert>		<C-\><C-n>"+gP
 
 
