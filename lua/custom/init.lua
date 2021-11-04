@@ -32,16 +32,16 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("n", " go", ":Gina log --graph<cr>", opt)
    vim.api.nvim_set_keymap("n", " gp", ":Gina pull<cr>", opt)
    vim.api.nvim_set_keymap("n", " g*", ":Gina push<cr>", opt)
-   vim.api.nvim_set_keymap("n", "e", "<cmd>HopChar1<cr>", opt)
-   vim.api.nvim_set_keymap("n", "<leader>hj", "<cmd>HopLineStartAC<cr>", opt)
-   vim.api.nvim_set_keymap("n", "<leader>hl", "<cmd>HopWordAC<cr>", opt)
-   vim.api.nvim_set_keymap("n", "<leader>hk", "<cmd>HopLineStartBC<cr>", opt)
-   vim.api.nvim_set_keymap("n", "<leader>hh", "<cmd>HopWordBC<cr>", opt)
-   vim.api.nvim_set_keymap("v", "e", "<cmd>HopChar1<cr>", opt)
-   vim.api.nvim_set_keymap("v", "<leader>hj", "<cmd>HopLineStartAC<cr>", opt)
-   vim.api.nvim_set_keymap("v", "<leader>hl", "<cmd>HopWordAC<cr>", opt)
-   vim.api.nvim_set_keymap("v", "<leader>hk", "<cmd>HopLineStartBC<cr>", opt)
-   vim.api.nvim_set_keymap("v", "<leader>hh", "<cmd>HopWordBC<cr>", opt)
+   vim.api.nvim_set_keymap("n", "ee", "<cmd>HopChar1<cr>", opt)
+   vim.api.nvim_set_keymap("n", "ej", "<cmd>HopLineStartAC<cr>", opt)
+   vim.api.nvim_set_keymap("n", "el", "<cmd>HopWordAC<cr>", opt)
+   vim.api.nvim_set_keymap("n", "ek", "<cmd>HopLineStartBC<cr>", opt)
+   vim.api.nvim_set_keymap("n", "eh", "<cmd>HopWordBC<cr>", opt)
+   vim.api.nvim_set_keymap("v", "ee", "<cmd>HopChar1<cr>", opt)
+   vim.api.nvim_set_keymap("v", "ej", "<cmd>HopLineStartAC<cr>", opt)
+   vim.api.nvim_set_keymap("v", "el", "<cmd>HopWordAC<cr>", opt)
+   vim.api.nvim_set_keymap("v", "ek", "<cmd>HopLineStartBC<cr>", opt)
+   vim.api.nvim_set_keymap("v", "eh", "<cmd>HopWordBC<cr>", opt)
 
    vim.api.nvim_set_keymap("n", " cd", ":cd %:p:h<cr>", opt)
    vim.api.nvim_set_keymap("n", " gf", ":Telescope git_files<cr>", opt)
@@ -152,7 +152,7 @@ hooks.add("setup_mappings", function(map)
             },
          },
          h = {
-            name = "+hop",
+            name = "+gitsign",
          },
          n = {
             name = "+LSP",
@@ -506,13 +506,6 @@ end} --don't work with nvim-treesitter]]
       config = function()
          require("telescope").load_extension "asynctasks"
       end,
-      requires = {
-         { "nvim-telescope/telescope.nvim" },
-         { "nvim-lua/popup.nvim" },
-         { "nvim-lua/plenary.nvim" },
-         { "skywind3000/asyncrun.vim" },
-         { "skywind3000/asynctasks.vim" },
-      },
    }
    use { "nvim-lua/popup.nvim" }
    use {
