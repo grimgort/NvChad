@@ -139,9 +139,17 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("n", "<leader>wh", [[:%s/<c-r><c-w>/<c-r><c-w>/g]], {})
    vim.api.nvim_set_keymap("n", "<leader>gc", ":Telescope grep_string<cr>", {})
    -- vim.api.nvim_set_keymap("c","<S-k>","<Up>",opts)
+   --
+   -- MARKDOWN-----------
+   -- ------------------
+   vim.api.nvim_set_keymap("n", "<leader>mm", "<cmd>Glow<cr>", {})
+   vim.api.nvim_set_keymap("n", "<leader>ma", "<cmd>MarkdownPreview<cr>", {})
    local wk = require "which-key"
    wk.register {
       ["<leader>"] = {
+         m = {
+            name = "+markdown",
+         },
          f = {
             name = "+file",
          },
@@ -521,6 +529,16 @@ end} --don't work with nvim-treesitter]]
          require("commented").setup(opts)
       end,
    }
+   use { "ellisonleao/glow.nvim" }
+   use { "davidgranstrom/nvim-markdown-preview" }
+   -- use {
+   --    "brymer-meneses/grammar-guard.nvim",
+   --    requires = "neovim/nvim-lspconfig",
+   --    after = "nvim-lspconfig",
+   --    config = function()
+   --      require("grammar-guard").init()
+   --    end,
+   -- }
    --[[ use {
       "rmagatti/auto-session",
       after = "telescope.nvim",
