@@ -144,6 +144,9 @@ hooks.add("setup_mappings", function(map)
    -- ------------------
    vim.api.nvim_set_keymap("n", "<leader>mm", "<cmd>Glow<cr>", {})
    vim.api.nvim_set_keymap("n", "<leader>ma", "<cmd>MarkdownPreview<cr>", {})
+
+   vim.api.nvim_set_keymap("n", "<leader>g,", "<Plug>(git-messenger)", opt)
+
    local wk = require "which-key"
    wk.register {
       ["<leader>"] = {
@@ -539,11 +542,12 @@ end} --don't work with nvim-treesitter]]
    --    end,
    --    requires = { "tami5/sqlite.lua" },
    -- }
-   use{ "cljoly/telescope-repo.nvim",
-   config = function()
-      require'telescope'.load_extension'repo'
-   end,
- }
+   use {
+      "cljoly/telescope-repo.nvim",
+      config = function()
+         require("telescope").load_extension "repo"
+      end,
+   }
    -- use {
    --    "brymer-meneses/grammar-guard.nvim",
    --    requires = "neovim/nvim-lspconfig",
@@ -602,15 +606,23 @@ require("telescope").load_extension "neovim-session-manager"
    } ]]
    -- use{"christoomey/vim-conflicted"}
 
--- use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'},
--- config = function()
---   require'navigator'.setup()
--- end,
--- }
+   -- use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'},
+   -- config = function()
+   --   require'navigator'.setup()
+   -- end,
+   -- }
+   --
+   use {
+      "rhysd/git-messenger.vim",
+      config = function()
+         -- vim.api.nvim_command 'let g:git_messenger_include_diff="current"'
+         vim.api.nvim_command "let g:git_messenger_floating_win_opts = { 'border': 'single' }"
+         vim.api.nvim_command "let g:git_messenger_no_default_mappings=v:true"
+      end,
+   }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
 -- then source it with
 
 require "custom.fred"
-
