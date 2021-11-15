@@ -53,10 +53,10 @@ hooks.add("setup_mappings", function(map)
    -- vim.api.nvim_set_keymap("n", " ge", ':Gina commit --opener="to split" --group="test"<cr>', opt)
    vim.api.nvim_set_keymap("n", " ge", ":Gina commit<cr>", opt)
    -- vim.api.nvim_set_keymap("n", " gg", ':Gina grep  --opener=tabnew --group="test" -ie ', opt)
-   vim.api.nvim_set_keymap("n", " gg", ":Gina grep -ie ", opt)
+   vim.api.nvim_set_keymap("n", " gg", ":Gina grep --opener=tabnew -ie ", opt)
    -- vim.api.nvim_set_keymap("n", " gx", ':Gina grep  --opener=tabnew --group="test" -ie ""\b<C-R><C-W>\b"', opt)
    -- vim.api.nvim_set_keymap("n", " gx", ':Gina grep  --opener=tabnew --group="test" -ie ""\b<C-R><C-W>\b"', opt)
-   vim.api.nvim_set_keymap("n", " gx", ':Gina grep -ie ""\b<C-R><C-W>\b"', opt)
+   vim.api.nvim_set_keymap("n", " gx", ':Gina grep --opener=tabnew -ie ""\b<C-R><C-W>\b"', opt)
    vim.api.nvim_set_keymap("n", " gw", ":Telescope live_grep<cr>", opt)
    vim.api.nvim_set_keymap("n", " gr", ":Gina tag<cr>", opt)
    vim.api.nvim_set_keymap("n", " gd", ":Gvdiffsplit<cr>", opt)
@@ -532,6 +532,19 @@ end} --don't work with nvim-treesitter]]
    use { "ellisonleao/glow.nvim" }
    use { "davidgranstrom/nvim-markdown-preview" }
    -- use {
+   --    "nvim-telescope/telescope-frecency.nvim",
+   --    config = function()
+   --       require("telescope").load_extension "frecency"
+
+   --    end,
+   --    requires = { "tami5/sqlite.lua" },
+   -- }
+   use{ "cljoly/telescope-repo.nvim",
+   config = function()
+      require'telescope'.load_extension'repo'
+   end,
+ }
+   -- use {
    --    "brymer-meneses/grammar-guard.nvim",
    --    requires = "neovim/nvim-lspconfig",
    --    after = "nvim-lspconfig",
@@ -588,9 +601,16 @@ require("telescope").load_extension "neovim-session-manager"
       end,
    } ]]
    -- use{"christoomey/vim-conflicted"}
+
+-- use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'},
+-- config = function()
+--   require'navigator'.setup()
+-- end,
+-- }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
 -- then source it with
 
 require "custom.fred"
+
