@@ -8,7 +8,7 @@ end
 local g = vim.g
 
 vim.o.termguicolors = true
-
+vim.g.nvim_tree_respect_buf_cwd = 1 -- for "ahmedkhalf/project.nvim"
 g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
 g.nvim_tree_git_hl = git_status
 g.nvim_tree_gitignore = 0
@@ -70,7 +70,8 @@ nvimtree.setup {
    update_cwd = true,
    update_focused_file = {
       enable = true,
-      update_cwd = false,
+      -- update_cwd = false,
+      update_cwd = true, -- for project.nvim plugin
    },
    view = {
       allow_resize = true,

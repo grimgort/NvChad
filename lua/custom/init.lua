@@ -29,7 +29,7 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("n", " gy", ":Gina tag<cr>", opt)
    vim.api.nvim_set_keymap("n", " wx", ":only<cr>", opt)
    vim.api.nvim_set_keymap("n", " gb", ":Gina branch<cr>", opt)
-   vim.api.nvim_set_keymap("n", " go", ":Gina log --graph<cr>", opt)
+   -- vim.api.nvim_set_keymap("n", " go", ":Gina log --graph<cr>", opt)
    vim.api.nvim_set_keymap("n", " gp", ":Gina pull<cr>", opt)
    vim.api.nvim_set_keymap("n", " g*", ":Gina push<cr>", opt)
    vim.api.nvim_set_keymap("n", "ee", "<cmd>HopChar1<cr>", opt)
@@ -53,10 +53,10 @@ hooks.add("setup_mappings", function(map)
    -- vim.api.nvim_set_keymap("n", " ge", ':Gina commit --opener="to split" --group="test"<cr>', opt)
    vim.api.nvim_set_keymap("n", " ge", ":Gina commit<cr>", opt)
    -- vim.api.nvim_set_keymap("n", " gg", ':Gina grep  --opener=tabnew --group="test" -ie ', opt)
-   vim.api.nvim_set_keymap("n", " gg", ":Gina grep --opener=tabnew -ie ", opt)
+   vim.api.nvim_set_keymap("n", " gg", ':Gina grep --opener=tabnew --group="test" -ie ', opt)
    -- vim.api.nvim_set_keymap("n", " gx", ':Gina grep  --opener=tabnew --group="test" -ie ""\b<C-R><C-W>\b"', opt)
    -- vim.api.nvim_set_keymap("n", " gx", ':Gina grep  --opener=tabnew --group="test" -ie ""\b<C-R><C-W>\b"', opt)
-   vim.api.nvim_set_keymap("n", " gx", ':Gina grep --opener=tabnew -ie ""\b<C-R><C-W>\b"', opt)
+   vim.api.nvim_set_keymap("n", " gx", ':Gina grep --opener=tabnew --group="test" -ie ""\b<C-R><C-W>\b"', opt)
    vim.api.nvim_set_keymap("n", " gw", ":Telescope live_grep<cr>", opt)
    vim.api.nvim_set_keymap("n", " gr", ":Gina tag<cr>", opt)
    vim.api.nvim_set_keymap("n", " gd", ":Gvdiffsplit<cr>", opt)
@@ -118,6 +118,10 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("n", "<leader>nr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
    vim.api.nvim_set_keymap("n", "<leader>nz", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
    vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+
+   vim.api.nvim_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "gk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
    vim.api.nvim_set_keymap("n", "<leader>ne", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
    vim.api.nvim_set_keymap("n", "<leader>nk", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
    vim.api.nvim_set_keymap("n", "<leader>nj", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
@@ -129,7 +133,8 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("n", "<F7>", "<cmd>CMake build_all<CR>", opts)
    vim.api.nvim_set_keymap("n", "<F7>", "<cmd>CMake build_all<CR>", opts)
 
-   vim.api.nvim_set_keymap("n", "<leader>tp", ":lua require'telescope'.extensions.project.project{}<CR>", opts)
+   -- vim.api.nvim_set_keymap("n", "<leader>tp", ":lua require'telescope'.extensions.project.project{}<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>tp", ":lua require'telescope'.extensions.projects.projects{}<CR>", opts)
    vim.api.nvim_set_keymap("n", "<leader>s", ":e#<cr>", opts)
 
    vim.api.nvim_set_keymap("c", "<C-k>", "<Up>", {})
@@ -146,6 +151,10 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("n", "<leader>ma", "<cmd>MarkdownPreview<cr>", {})
 
    vim.api.nvim_set_keymap("n", "<leader>g,", "<Plug>(git-messenger)", opt)
+   vim.api.nvim_set_keymap("n", "<C-w>,", "<Plug>(git-messenger-into-popup)", opt)
+   vim.api.nvim_set_keymap("n", "<leader>goo", "<cmd>GV<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>go!", "<cmd>GV!<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>go?", "<cmd>GV?<cr>", opt)
 
    local wk = require "which-key"
    wk.register {
@@ -384,16 +393,16 @@ end} --don't work with nvim-treesitter]]
          } -- bug
       end,
    }
-   use {
-      "ahmedkhalf/lsp-rooter.nvim",
-      config = function()
-         require("lsp-rooter").setup {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-         }
-      end,
-   }
+   -- use {
+   --    "ahmedkhalf/lsp-rooter.nvim",
+   --    config = function()
+   --       require("lsp-rooter").setup {
+   --          -- your configuration comes here
+   --          -- or leave it empty to use the default settings
+   --          -- refer to the configuration section below
+   --       }
+   --    end,
+   -- }
    -- use {'alexaandru/nvim-lspupdate'}
    -- use {'williamboman/nvim-lsp-installer'}
    use { "skywind3000/asyncrun.vim" }
@@ -453,13 +462,13 @@ end} --don't work with nvim-treesitter]]
       end,
    }
 
-   use {
-      "nvim-telescope/telescope-project.nvim",
-      after = "telescope.nvim",
-      config = function()
-         require("telescope").load_extension "project"
-      end,
-   }
+   -- use {
+   --    "nvim-telescope/telescope-project.nvim",
+   --    after = "telescope.nvim",
+   --    config = function()
+   --       require("telescope").load_extension "project"
+   --    end,
+   -- }
 
    use { "sbdchd/neoformat" }
    use {
@@ -618,6 +627,18 @@ require("telescope").load_extension "neovim-session-manager"
          -- vim.api.nvim_command 'let g:git_messenger_include_diff="current"'
          vim.api.nvim_command "let g:git_messenger_floating_win_opts = { 'border': 'single' }"
          vim.api.nvim_command "let g:git_messenger_no_default_mappings=v:true"
+         vim.api.nvim_command "let g:git_messenger_always_into_popup=v:true"
+      end,
+   }
+   use { "mg979/vim-visual-multi", config = function() end }
+   use { "junegunn/gv.vim", config = function() end }
+   use {
+      "ahmedkhalf/project.nvim",
+      config = function()
+         require("project_nvim").setup {
+            require('telescope').load_extension('projects')
+
+         }
       end,
    }
 end)

@@ -16,7 +16,8 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 -- }
 
 M.ui = {
-  theme = "uwu"
+  -- theme = "uwu"
+  theme = "onejelly"
 }
 M.mappings = {
    -- custom = {}, -- all custom user mappings
