@@ -155,10 +155,25 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("n", "<leader>goo", "<cmd>GV<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>go!", "<cmd>GV!<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>go?", "<cmd>GV?<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>n*", '<cmd>call openbrowser#smart_search(expand("<cword>"), "cpp")<cr>', opt)
+   vim.api.nvim_set_keymap("n", "ç", '<cmd>ToggleTerm2<cr>', opt)
+   vim.api.nvim_set_keymap("n", "<leader>dd", ':TranslateW<cr>', opt)
+   vim.api.nvim_set_keymap("v", "<leader>dd", ':TranslateW<cr>', opt)
+   vim.api.nvim_set_keymap("n", "<leader>dr", ':TranslateR<cr>', opt)
+   vim.api.nvim_set_keymap("v", "<leader>dr", ':TranslateR<cr>', opt)
+  vim.api.nvim_set_keymap("n", "<leader>da", ':TranslateW!<cr>', opt)
+   vim.api.nvim_set_keymap("v", "<leader>da", ':TranslateW!<cr>', opt)
+   vim.api.nvim_set_keymap("n", "<leader>dz", ':TranslateR!<cr>', opt)
+   vim.api.nvim_set_keymap("v", "<leader>dz", ':TranslateR!<cr>', opt)
+   vim.api.nvim_set_keymap("n", "<leader>ù", ':RandomColorScheme<cr>', opt)
+
 
    local wk = require "which-key"
    wk.register {
       ["<leader>"] = {
+         d = {
+            name = "+Translate",
+         },
          m = {
             name = "+markdown",
          },
@@ -285,19 +300,16 @@ hooks.add("install_plugins", function(use)
       config = function()
          if vim.loop.os_uname().sysname == "Windows_NT" then
             require("toggleterm").setup {
-               open_mapping = [[ç]],
-               start_in_insert = false,
-               insert_mappings = true, -- whether or not the open mapping applies in insert mode
                shell = "pwsh.exe", -- change the default shell
             }
-         else
-            require("toggleterm").setup {
-               open_mapping = [[ç]],
-               start_in_insert = false,
-               insert_mappings = true, -- whether or not the open mapping applies in insert mode
-               -- shell ="pwsh.exe", -- change the default shell
-            }
          end
+         require("toggleterm").setup {
+            open_mapping = [[<C-ç>]],
+            hide_numbers = false,
+            start_in_insert = false,
+            insert_mappings = true, -- whether or not the open mapping applies in insert mode
+            -- direction = "float",
+         }
       end,
    }
    use {
@@ -636,11 +648,35 @@ require("telescope").load_extension "neovim-session-manager"
       "ahmedkhalf/project.nvim",
       config = function()
          require("project_nvim").setup {
-            require('telescope').load_extension('projects')
-
+            require("telescope").load_extension "projects",
          }
       end,
    }
+   use {
+      "KabbAmine/zeavim.vim",
+      config = function() end,
+   }
+   use {
+      "tyru/open-browser.vim",
+      config = function()
+         -- vim.api.nvim_exec(
+         -- [[
+         -- let g:openbrowser_search_engines = extend(
+         -- \ get(g:, 'openbrowser_search_engines', {}),
+         -- \ {
+         -- \   'cppreference': 'https://en.cppreference.com/mwiki/index.php?title=Special%3ASearch&search={query}',
+         -- \   'qt': 'https://doc.qt.io/qt-5/search-results.html?q={query}',
+         -- \ },
+         -- \ 'keep'
+         -- \)
+         -- ]])
+      end,
+   }
+   use{"EdenEast/nightfox.nvim"}
+   use{"xolox/vim-colorscheme-switcher"}
+use{"xolox/vim-misc"}
+use{"projekt0n/github-nvim-theme"}
+   -- use{"tssm/nvim-random-colors"}
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
