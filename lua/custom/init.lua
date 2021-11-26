@@ -86,7 +86,7 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("n", "<C-S-Right>", "<C-W>l", opt)
    vim.api.nvim_set_keymap("n", "<C-S-Up>", "<C-W>k", opt)
    vim.api.nvim_set_keymap("n", "<C-S-Down>", "<C-W>j", opt)
-   -- vim.api.nvim_set_keymap('n',"<leader>\"", "[[ysiw]],opt)
+   vim.api.nvim_set_keymap("n", "<leader>\"", "ysiw", opt)
    vim.api.nvim_set_keymap("n", "<leader>ww", ":tabclose<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>wx", ":only<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>wq", ":q<cr>", opt)
@@ -156,17 +156,16 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("n", "<leader>go!", "<cmd>GV!<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>go?", "<cmd>GV?<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>n*", '<cmd>call openbrowser#smart_search(expand("<cword>"), "cpp")<cr>', opt)
-   vim.api.nvim_set_keymap("n", "ç", '<cmd>ToggleTerm2<cr>', opt)
-   vim.api.nvim_set_keymap("n", "<leader>dd", ':TranslateW<cr>', opt)
-   vim.api.nvim_set_keymap("v", "<leader>dd", ':TranslateW<cr>', opt)
-   vim.api.nvim_set_keymap("n", "<leader>dr", ':TranslateR<cr>', opt)
-   vim.api.nvim_set_keymap("v", "<leader>dr", ':TranslateR<cr>', opt)
-  vim.api.nvim_set_keymap("n", "<leader>da", ':TranslateW!<cr>', opt)
-   vim.api.nvim_set_keymap("v", "<leader>da", ':TranslateW!<cr>', opt)
-   vim.api.nvim_set_keymap("n", "<leader>dz", ':TranslateR!<cr>', opt)
-   vim.api.nvim_set_keymap("v", "<leader>dz", ':TranslateR!<cr>', opt)
-   vim.api.nvim_set_keymap("n", "<leader>ù", ':RandomColorScheme<cr>', opt)
-
+   vim.api.nvim_set_keymap("n", "ç", "<cmd>ToggleTerm2<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>dd", ":TranslateW<cr>", opt)
+   vim.api.nvim_set_keymap("v", "<leader>dd", ":TranslateW<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>dr", ":TranslateR<cr>", opt)
+   vim.api.nvim_set_keymap("v", "<leader>dr", ":TranslateR<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>da", ":TranslateW!<cr>", opt)
+   vim.api.nvim_set_keymap("v", "<leader>da", ":TranslateW!<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>dz", ":TranslateR!<cr>", opt)
+   vim.api.nvim_set_keymap("v", "<leader>dz", ":TranslateR!<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>ù", ":RandomColorScheme<cr>", opt)
 
    local wk = require "which-key"
    wk.register {
@@ -672,10 +671,20 @@ require("telescope").load_extension "neovim-session-manager"
          -- ]])
       end,
    }
-   use{"EdenEast/nightfox.nvim"}
-   use{"xolox/vim-colorscheme-switcher"}
-use{"xolox/vim-misc"}
-use{"projekt0n/github-nvim-theme"}
+   use { "EdenEast/nightfox.nvim" }
+   use { "xolox/vim-colorscheme-switcher" }
+   use { "xolox/vim-misc" }
+   use {
+      "projekt0n/github-nvim-theme",
+      config = function()
+         vim.g.nd_theme = [[
+   ['4:00',  'base16-default-light', 'light' ],
+   ['11:00', 'solarized',            'light' ],
+   ['18:00', 'solarized',            'dark'  ],
+   ]]
+      end,
+   }
+   -- use { "haystackandroid/night-and-day" }
    -- use{"tssm/nvim-random-colors"}
 end)
 

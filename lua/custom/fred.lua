@@ -217,6 +217,16 @@ set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
+
+let g:fontsize = 14
+function! AdjustFontSize(amount)
+  let g:fontsize = g:fontsize+a:amount
+  :execute "GuiFont! Consolas:h" . g:fontsize
+endfunction
+" In normal mode, pressing numpad's+ increases the font
+noremap <kPlus> :call AdjustFontSize(1)<CR>
+noremap <kMinus> :call AdjustFontSize(-1)<CR>
+
 ]]
 ,
 true)

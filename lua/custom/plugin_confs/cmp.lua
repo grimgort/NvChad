@@ -63,7 +63,7 @@ cmp.setup {
       { name = "luasnip" },
       { name = "cmp_tabnine" },
       { name = "nvim_lua" },
-     { name = "buffer"},
+      { name = "buffer" },
 
       --[[ { name = "buffer", opts = {
          get_bufnrs = function()
@@ -74,5 +74,25 @@ cmp.setup {
       { name = "emoji" },
       { name = "treesitter" },
       { name = "crates" },
+   },
+   sorting = {
+      comparators = {
+         cmp.config.compare.score,
+         cmp.config.compare.offset,
+         -- cmp.config.compare.exact,
+         -- cmp.config.compare.kind,
+         -- cmp.config.compare.sort_text,
+         -- cmp.config.compare.length,
+         -- cmp.config.compare.order,
+      },
+      -- comparators = {
+      -- 	compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
+      -- 	compare.offset,
+      -- 	--compare.order,
+      -- 	--compare.sort_text,
+      -- 	-- compare.exact,
+      -- 	-- compare.kind,
+      --         -- compare.length,
+      -- }
    },
 }
