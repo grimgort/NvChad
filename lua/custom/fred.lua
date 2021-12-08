@@ -1,36 +1,48 @@
-
-
+-- vim.cmd('let maplocalleader=","')
+vim.g.maplocalleader = ","
 function _G.set_terminal_keymaps()
-  local opts = {noremap = true}
-  -- vim.api.nvim_buf_set_keymap(0, 't', '²', "[[<C-\><C-n>]]CloseAll, opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-  -- vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
-  -- vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<DOWN>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<UP>]], opts)
-  -- vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+   local opts = { noremap = true }
+   -- vim.api.nvim_buf_set_keymap(0, 't', '²', "[[<C-\><C-n>]]CloseAll, opts)
+   vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
+   -- vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
+   -- vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
+   vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<DOWN>]], opts)
+   vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<UP>]], opts)
+   -- vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
-vim.cmd('autocmd FocusGained * checktime') --auto reload file if modified by another apps
-vim.api.nvim_command('let g:vim_current_word#highlight_current_word = 0')
-vim.api.nvim_command('let g:asyncrun_open = 8') -- alow to open quickfix list for asyncrun command automatically
-vim.api.nvim_command('let g:sqlite_clib_path = "D:/ftarroux/Logiciel/sqlite-dll/sqlite3.dll"') -- alow to open quickfix list for asyncrun command automatically
+vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
+vim.cmd "autocmd FocusGained * checktime"
+vim.cmd "autocmd FileType qf wincmd J"
+vim.api.nvim_command "let g:vim_current_word#highlight_current_word = 0"
+vim.api.nvim_command "let g:asyncrun_open = 8"
+vim.api.nvim_command 'let g:sqlite_clib_path = "D:/ftarroux/Logiciel/sqlite-dll/sqlite3.dll"'
 
-vim.cmd('autocmd FocusGained * set ww =""') --disable wildchar nvchad config
-vim.api.nvim_set_option("scrolloff",5)
+vim.cmd 'autocmd FocusGained * set ww =""'
+vim.api.nvim_set_option("scrolloff", 5)
 
 -- vim.api.nvim_win_set_option(0,"foldenable")
-vim.api.nvim_win_set_option(0,"foldmethod","expr")
-vim.api.nvim_win_set_option(0,"foldlevel",20)
-vim.api.nvim_win_set_option(0,"foldexpr","nvim_treesitter#foldexpr()")
+vim.api.nvim_win_set_option(0, "foldmethod", "expr")
+vim.api.nvim_win_set_option(0, "foldlevel", 20)
+vim.api.nvim_win_set_option(0, "foldexpr", "nvim_treesitter#foldexpr()")
 -- vim.cmd("setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr()")
 
 -- vim.cmd('autocmd BufRead * "set foldmethod=expr"')
+-- vim.cmd "colorscheme rakr"
+--
+--
+vim.api.nvim_exec([[
+function Compile_cpp_file()
+:!clang  %:p -o %:p:h\test.exe
+endfunction
+silent! command! CompileCppFile call Compile_cpp_file()
+
+
+]],true)
 
 local result = vim.api.nvim_exec(
-[[
+   [[
 
  let g:term_buf = 0
   let g:term_win = 0
@@ -116,10 +128,11 @@ function! CloseWindo()
   if has('nvim')
     if win_gotoid(g:term_win)
       hide
-      silent! :ToggleTermCloseAll<cr>
+      "silent! :ToggleTermToggleAll!<cr>
     endif
   endif
-  silent! :ToggleTermCloseAll
+  "silent! :ToggleTermToggleAll!<cr>
+ :lua require('FTerm').close()
   windo call Close_all()
   "exec "silent! saved_winnr . 'wincmd w'"
   "exec "silent! saved_winnr . 'bufload'"
@@ -138,11 +151,12 @@ endfunction
 silent! command! CloseAll call CloseWindo()
   set autoread
 ]],
-true)
+   true
+)
 
-vim.api.nvim_command('set undofile')
+vim.api.nvim_command "set undofile"
 local result = vim.api.nvim_exec(
-[[
+   [[
 
 
 nnoremap << >>
@@ -227,9 +241,6 @@ endfunction
 noremap <kPlus> :call AdjustFontSize(1)<CR>
 noremap <kMinus> :call AdjustFontSize(-1)<CR>
 
-]]
-,
-true)
-
-
-
+]],
+   true
+)

@@ -10,11 +10,12 @@ dap.configurations.cpp = {
     name = "Launch",
     type = "lldb",
     request = "launch",
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
+    -- program = function()
+    --   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    -- end,
+    program = "${workspaceFolder}/build/bin/Debug/MATISSE.exe",
     cwd = '${workspaceFolder}',
-    stopOnEntry = false,
+    stopOnEntry = true,
     args = {},
 
     -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:

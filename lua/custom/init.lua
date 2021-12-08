@@ -24,14 +24,15 @@ hooks.add("setup_mappings", function(map)
    -- vim.api.nvim_set_keymap("n", "<leader>cc", "gg0vG$d", opt) -- example to delete the buffer
    local opt = {}
    local opts = {}
+   vim.api.nvim_set_keymap("n", "<leader>=", ":edit ~/todo.txt<cr>", opt)
    vim.api.nvim_set_keymap("i", "é", "é", opt)
    vim.api.nvim_set_keymap("i", "^", "^", opt)
    vim.api.nvim_set_keymap("n", " gy", ":Gina tag<cr>", opt)
    vim.api.nvim_set_keymap("n", " wx", ":only<cr>", opt)
    vim.api.nvim_set_keymap("n", " gb", ":Gina branch<cr>", opt)
    -- vim.api.nvim_set_keymap("n", " go", ":Gina log --graph<cr>", opt)
-   vim.api.nvim_set_keymap("n", " gp", ":Gina pull<cr>", opt)
-   vim.api.nvim_set_keymap("n", " g*", ":Gina push<cr>", opt)
+   vim.api.nvim_set_keymap("n", " gp", ":Git pull<cr>", opt)
+   vim.api.nvim_set_keymap("n", " g*", ":Git push<cr>", opt)
    vim.api.nvim_set_keymap("n", "ee", "<cmd>HopChar1<cr>", opt)
    vim.api.nvim_set_keymap("n", "ej", "<cmd>HopLineStartAC<cr>", opt)
    vim.api.nvim_set_keymap("n", "el", "<cmd>HopWordAC<cr>", opt)
@@ -61,7 +62,7 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("n", " gr", ":Gina tag<cr>", opt)
    vim.api.nvim_set_keymap("n", " gd", ":Gvdiffsplit<cr>", opt)
    vim.api.nvim_set_keymap("n", " gz", ":Gina branch<cr>", opt)
-   -- vim.api.nvim_set_keymap("n", " ga", ':Gina commit --amend --opener="to split" --group="test"<cr> ', opt)
+   -- vim.api.nvim_set_keymap("n", " ga", ':Gina commit --amend --opener="to split" --group="test"<cr> ', o:pt)
    vim.api.nvim_set_keymap("n", " ga", ":Gina commit --amend<cr> ", opt)
    -- vim.api.nvim_set_keymap("n", " gs", ':Gina status  --opener="to split" --group="test"<cr>', opt)
    vim.api.nvim_set_keymap("n", " gs", ":Gina status<cr>", opt)
@@ -76,6 +77,8 @@ hooks.add("setup_mappings", function(map)
    -- vim.api.nvim_set_keymap('n', "<leader>o", ":lua vim.lsp.buf.workspace_symbol()<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>o", ":Telescope lsp_dynamic_workspace_symbols<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>td", ":Telescope lsp_document_diagnostics<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>tt", ":Telescope current_buffer_fuzzy_find<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>ty", ":Telescope <cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>wc", ":%s/", opt)
    vim.api.nvim_set_keymap("v", "<leader>wc", ":s/", opt)
    vim.api.nvim_set_keymap("n", "<C-a>", "GVgg", opt)
@@ -86,7 +89,7 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("n", "<C-S-Right>", "<C-W>l", opt)
    vim.api.nvim_set_keymap("n", "<C-S-Up>", "<C-W>k", opt)
    vim.api.nvim_set_keymap("n", "<C-S-Down>", "<C-W>j", opt)
-   vim.api.nvim_set_keymap("n", "<leader>\"", "ysiw", opt)
+   vim.api.nvim_set_keymap("n", '<leader>"', "ysiw", opt)
    vim.api.nvim_set_keymap("n", "<leader>ww", ":tabclose<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>wx", ":only<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>wq", ":q<cr>", opt)
@@ -135,7 +138,7 @@ hooks.add("setup_mappings", function(map)
 
    -- vim.api.nvim_set_keymap("n", "<leader>tp", ":lua require'telescope'.extensions.project.project{}<CR>", opts)
    vim.api.nvim_set_keymap("n", "<leader>tp", ":lua require'telescope'.extensions.projects.projects{}<CR>", opts)
-   vim.api.nvim_set_keymap("n", "<leader>s", ":e#<cr>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>z", ":e#<cr>", opts)
 
    vim.api.nvim_set_keymap("c", "<C-k>", "<Up>", {})
    vim.api.nvim_set_keymap("c", "<C-j>", "<Down>", {})
@@ -156,7 +159,7 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("n", "<leader>go!", "<cmd>GV!<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>go?", "<cmd>GV?<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>n*", '<cmd>call openbrowser#smart_search(expand("<cword>"), "cpp")<cr>', opt)
-   vim.api.nvim_set_keymap("n", "ç", "<cmd>ToggleTerm2<cr>", opt)
+   -- vim.api.nvim_set_keymap("n", "ç", "<cmd>ToggleTerm<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>dd", ":TranslateW<cr>", opt)
    vim.api.nvim_set_keymap("v", "<leader>dd", ":TranslateW<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>dr", ":TranslateR<cr>", opt)
@@ -165,7 +168,14 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("v", "<leader>da", ":TranslateW!<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>dz", ":TranslateR!<cr>", opt)
    vim.api.nvim_set_keymap("v", "<leader>dz", ":TranslateR!<cr>", opt)
-   vim.api.nvim_set_keymap("n", "<leader>ù", ":RandomColorScheme<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>ù", ":RandomColorScheme<cr>:colorscheme<cr>", opt)
+
+   vim.api.nvim_set_keymap("n", "<leader>S", ":lua require('spectre').open()<CR>", opt)
+   -- search current word
+   vim.api.nvim_set_keymap("n", "<leader>sw", ":lua require('spectre').open_visual({select_word=true})<CR>", opt)
+   vim.api.nvim_set_keymap("v", "<leader>s", ":lua require('spectre').open_visual()<CR>", opt)
+   -- search in current file
+   vim.api.nvim_set_keymap("n", "<leader>sp", ":lua require('spectre').open_file_search()<cr>", opt)
 
    local wk = require "which-key"
    wk.register {
@@ -280,7 +290,7 @@ hooks.add("install_plugins", function(use)
                ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
                hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
                show_help = true, -- show help message on the command line when the popup is visible
-               triggers = "auto", -- automatically setup triggers
+               triggers = { "auto", "," }, -- automatically setup triggers
                -- triggers = {"<leader>"} -- or specify a list manually
                triggers_blacklist = {
                   -- list of mode / prefixes that should never be hooked by WhichKey
@@ -302,13 +312,86 @@ hooks.add("install_plugins", function(use)
                shell = "pwsh.exe", -- change the default shell
             }
          end
+
          require("toggleterm").setup {
-            open_mapping = [[<C-ç>]],
-            hide_numbers = false,
+            -- size can be a number or function which is passed the current terminal
+            size = function(term)
+               if term.direction == "horizontal" then
+                  return 10
+               elseif term.direction == "vertical" then
+                  return vim.o.columns * 0.4
+               end
+            end,
+
+            -- open_mapping = [[<c-ç>]],
+            hide_numbers = false, -- hide the number column in toggleterm buffers
+            shade_filetypes = {},
+            shade_terminals = false,
+            shading_factor = "0", -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
             start_in_insert = false,
-            insert_mappings = true, -- whether or not the open mapping applies in insert mode
-            -- direction = "float",
+            insert_mappings = false, -- whether or not the open mapping applies in insert mode
+            persist_size = false,
+            direction = "horizontal", --'horizontal', -- 'vertical' | 'horizontal' | 'window' | 'float',
+            close_on_exit = true, -- close the terminal window when the process exits
+            -- This field is only relevant if direction is set to 'float'
+            float_opts = {
+               -- The border key is *almost* the same as 'nvim_open_win'
+               -- see :h nvim_open_win for details on borders however
+               -- the 'curved' border is a custom border type
+               -- not natively supported but implemented in this plugin.
+               border = "single", --'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
+               width = math.floor(vim.o.columns * 1),
+               height = 35,
+               winblend = 0,
+               highlights = {
+                  border = "Normal",
+                  background = "Normal",
+               },
+            },
          }
+
+         local function float_mappings(mapping)
+            vim.api.nvim_set_keymap("n", mapping, '<Cmd>execute v:count . "ToggleTerm direction=float"<CR>', {
+               silent = true,
+               noremap = true,
+            })
+            vim.api.nvim_set_keymap("t", mapping, '<Cmd>execute v:count . "ToggleTerm direction=float"<CR>', {
+               silent = true,
+               noremap = true,
+            })
+         end
+
+         local function horizontal_mappings(mapping)
+            vim.api.nvim_set_keymap("n", mapping, '<Cmd>execute v:count . "ToggleTerm direction=horizontal"<CR>', {
+               silent = true,
+               noremap = true,
+            })
+            vim.api.nvim_set_keymap("t", mapping, '<Cmd>execute v:count . "ToggleTerm direction=horizontal"<CR>', {
+               silent = true,
+               noremap = true,
+            })
+         end
+
+         -- horizontal_mappings "ç"
+         -- float_mappings "<C-ç>"
+
+         --
+         --
+         --
+         --
+         -- if vim.loop.os_uname().sysname == "Windows_NT" then
+         --    require("toggleterm").setup {
+         --       shell = "pwsh.exe", -- change the default shell
+         --    }
+         -- end
+         -- require("toggleterm").setup {
+         --    open_mapping = [[<C-ç>]],
+         --    hide_numbers = false,
+         --    start_in_insert = false,
+         --    insert_mappings = true, -- whether or not the open mapping applies in insert mode
+
+         --    -- direction = "float",
+         -- }
       end,
    }
    use {
@@ -330,7 +413,45 @@ hooks.add("install_plugins", function(use)
    use {
       "mfussenegger/nvim-dap",
       config = function()
-         require "custom.plugin_confs.nvim_dap"
+         -- require "custom.plugin_confs.nvim_dap"
+         --
+local dap = require('dap')
+dap.adapters.lldb = {
+  type = 'executable',
+  command = 'D:/ftarroux/scoop/apps/llvm/current/bin/lldb-vscode', -- adjust as needed
+  name = "lldb"
+}
+local dap = require('dap')
+dap.configurations.cpp = {
+  {
+    name = "Launch",
+    type = "lldb",
+    request = "launch",
+    -- program = function()
+    --   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    -- end,
+    program = "${workspaceFolder}/build/bin/Debug/MATISSE.exe",
+    cwd = '${workspaceFolder}',
+    stopOnEntry = true,
+    args = {},
+
+    -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+    --
+    --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+    --
+    -- Otherwise you might get the following error:
+    --
+    --    Error on launch: Failed to attach to the target process
+    --
+    -- But you should be aware of the implications:
+    -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+    runInTerminal = false,
+  },
+}
+dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp
+
+
       end,
    }
    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
@@ -651,10 +772,10 @@ require("telescope").load_extension "neovim-session-manager"
          }
       end,
    }
-   use {
-      "KabbAmine/zeavim.vim",
-      config = function() end,
-   }
+   -- use {
+   --    "KabbAmine/zeavim.vim",
+   --    config = function() end,
+   -- }
    use {
       "tyru/open-browser.vim",
       config = function()
@@ -676,16 +797,84 @@ require("telescope").load_extension "neovim-session-manager"
    use { "xolox/vim-misc" }
    use {
       "projekt0n/github-nvim-theme",
+   }
+   use { "aperezdc/vim-template" }
+   -- use { "yssl/QFEnter" } --replaced by nvim-bqf
+   use {
+      "Shougo/echodoc.vim",
       config = function()
-         vim.g.nd_theme = [[
-   ['4:00',  'base16-default-light', 'light' ],
-   ['11:00', 'solarized',            'light' ],
-   ['18:00', 'solarized',            'dark'  ],
-   ]]
+         vim.g.echodoc_type = "popup"
+         vim.g.echodoc_enable_at_startup = 1
+         vim.api.nvim_command "set noshowmode"
       end,
    }
-   -- use { "haystackandroid/night-and-day" }
+   use {
+      "brooth/far.vim",
+      config = function()
+         vim.g.far_source = "ag"
+         vim.g.far_enable_undo = 1
+      end,
+   } -- for replace will be replaced by spectre
+   use { "romainl/vim-devdocs" }
+   use {
+      "rhysd/devdocs.vim",
+      config = function()
+         vim.cmd [[let g:devdocs_filetype_map = {
+    \   'c': 'cpp'}
+    ]]
+     vim.api.nvim_set_keymap("n", "<leader>nh", ":DevDocsUnderCursor<cr>",{})
+      end,
+   }
+   use { "ggandor/lightspeed.nvim", config = function() end } --map f and s, little useles
+   use {
+      "kevinhwang91/nvim-bqf",
+      ft = "qf",
+      config = function()
+         require("bqf").setup {
+            auto_resize_height = false, --cmake --build qf bug
+         }
+      end,
+   } --*improve quickfix
+   use { "windwp/nvim-spectre", config = function() end }
+   use { "rafi/awesome-vim-colorschemes" }
+
+   -- use { "haystackandroid/night-and-day"
+   --     config = function()
+   --       vim.g.nd_theme = [[
+   -- ['4:00',  'base16-default-light', 'light' ],
+   -- ['11:00', 'solarized',            'light' ],
+   -- ['18:00', 'solarized',            'dark'  ],
+   -- ]]
+   --    end,
+   -- }
    -- use{"tssm/nvim-random-colors"}
+   use { "vuciv/vim-bujo" }
+   use { "freitass/todo.txt-vim" }
+   use { "vimwiki/vimwiki" }
+   use {
+      "numToStr/FTerm.nvim",
+      config = function()
+         if vim.loop.os_uname().sysname == "Windows_NT" then
+            require("FTerm").setup {
+               cmd = "pwsh.exe", -- change the default shell
+            }
+         end
+
+         require("FTerm").setup {
+            border = "double",
+            dimensions = {
+               height = 0.9,
+               width = 0.9,
+            },
+         }
+         local map = vim.api.nvim_set_keymap
+         local opts = { noremap = true, silent = true }
+
+         map("n", "ç", '<CMD>lua require("FTerm").toggle()<CR>', opts)
+         map("t", "ç", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
+      end,
+   }
+   use{'kdheepak/lazygit.nvim'}
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
