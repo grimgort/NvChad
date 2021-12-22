@@ -1,3 +1,2 @@
 plugin
-!lua/custom/example_init.lua
-!lua/custom/example_chadrc.lua
+custom
