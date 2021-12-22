@@ -11,12 +11,8 @@ cmp.setup {
    },
    formatting = {
       format = function(entry, vim_item)
-         -- load lspkind icons
-         vim_item.kind = string.format(
-            "%s %s",
-            require("plugins.configs.lspkind_icons").icons[vim_item.kind],
-            vim_item.kind
-         )
+         local icons = require "plugins.configs.lspkind_icons"
+         vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
 
          vim_item.menu = ({
             nvim_lsp = "[LSP]",
@@ -63,13 +59,12 @@ cmp.setup {
       { name = "luasnip" },
       { name = "cmp_tabnine" },
       { name = "nvim_lua" },
-      { name = "buffer" },
-
-      --[[ { name = "buffer", opts = {
+      -- { name = "buffer" },
+      { name = "buffer", options = {
          get_bufnrs = function()
             return vim.api.nvim_list_bufs()
          end,
-      } }, ]]
+      } },
       { name = "calc" },
       { name = "emoji" },
       { name = "treesitter" },

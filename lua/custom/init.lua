@@ -587,12 +587,12 @@ end} --don't work with nvim-treesitter]]
       cmd = "CodeActionMenu",
    }
 
-   use {
-      "hoob3rt/lualine.nvim",
-      config = function()
-         require "custom.plugin_confs.lualine"
-      end,
-   }
+   -- use {
+   --    "hoob3rt/lualine.nvim",
+   --    config = function()
+   --       require "custom.plugin_confs.lualine"
+   --    end,
+   -- }
 
    -- use {
    --    "nvim-telescope/telescope-project.nvim",
@@ -875,6 +875,15 @@ require("telescope").load_extension "neovim-session-manager"
       end,
    }
    use{'kdheepak/lazygit.nvim'}
+   use{'dstein64/vim-startuptime'}
+--
+  use({
+          "windwp/windline.nvim",
+          config = function()
+                  require("wlsample.evil_line")
+                  require("wlfloatline").setup()
+          end,
+  })
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
