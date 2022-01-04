@@ -64,8 +64,8 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("n", " gz", ":Gina branch<cr>", opt)
    -- vim.api.nvim_set_keymap("n", " ga", ':Gina commit --amend --opener="to split" --group="test"<cr> ', o:pt)
    vim.api.nvim_set_keymap("n", " ga", ":Gina commit --amend<cr> ", opt)
-   -- vim.api.nvim_set_keymap("n", " gs", ':Gina status  --opener="to split" --group="test"<cr>', opt)
-   vim.api.nvim_set_keymap("n", " gs", ":Gina status<cr>", opt)
+   vim.api.nvim_set_keymap("n", " gs", ':Gina status  --opener="to split" --group="test"<cr>', opt)
+   -- vim.api.nvim_set_keymap("n", " gs", ":Gina status<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>gh", ":diffget //3<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>gl", ":diffget //2<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>gu", ":GitBlameToggle<cr>", opt)
@@ -101,7 +101,8 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("n", "²", ":CloseAll<cr>", opt)
    vim.api.nvim_set_keymap("i", "²", "<C-o>:CloseAll<cr>", opt)
    vim.api.nvim_set_keymap("t", "²", "<C-\\><C-n>CloseAll<cr>", opt)
-   vim.api.nvim_set_keymap("n", "<F4>", ":SymbolsOutline<cr>", opt)
+   -- vim.api.nvim_set_keymap("n", "<F4>", ":SymbolsOutline<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<F4>", ":AerialToggle<cr>", opt)
 
    -- mapping not seems to work with lspconfig
    -- personal lsp config
@@ -473,6 +474,7 @@ dap.configurations.rust = dap.configurations.cpp
   }
 } ]]
    use { "simrat39/symbols-outline.nvim" }
+    use {'stevearc/aerial.nvim'}
    use {
       "b3nj5m1n/kommentary",
       config = function()
