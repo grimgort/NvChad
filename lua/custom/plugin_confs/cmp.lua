@@ -69,16 +69,17 @@ cmp.setup {
       { name = "emoji" },
       { name = "treesitter" },
       { name = "crates" },
+      { name = "neorg" },
    },
    sorting = {
       comparators = {
-         cmp.config.compare.score,
          cmp.config.compare.offset,
-         -- cmp.config.compare.exact,
-         -- cmp.config.compare.kind,
-         -- cmp.config.compare.sort_text,
+         cmp.config.compare.score,
+         cmp.config.compare.exact,
+         cmp.config.compare.kind,
+         cmp.config.compare.sort_text,
          -- cmp.config.compare.length,
-         -- cmp.config.compare.order,
+         cmp.config.compare.order,
       },
       -- comparators = {
       -- 	compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)

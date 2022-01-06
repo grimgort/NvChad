@@ -175,6 +175,7 @@ M.plugins = {
      nvim_tree = "custom.plugin_confs.nvimtree",
      nvim_treesitter = "custom.plugin_confs.treesitter",
      dashboard = "custom.plugin_confs.dashboard",
+     -- indent_blankline = "custom.plugin_confs.indent_blankline",
      -- feline = "custom.plugin_confs.feline"
    },
 }

@@ -177,6 +177,7 @@ hooks.add("setup_mappings", function(map)
    vim.api.nvim_set_keymap("v", "<leader>s", ":lua require('spectre').open_visual()<CR>", opt)
    -- search in current file
    vim.api.nvim_set_keymap("n", "<leader>sp", ":lua require('spectre').open_file_search()<cr>", opt)
+   vim.api.nvim_set_keymap("n", "<leader>nc", ":AsyncRun cpplint % <cr>", opt)
 
    local wk = require "which-key"
    wk.register {
@@ -416,43 +417,41 @@ hooks.add("install_plugins", function(use)
       config = function()
          -- require "custom.plugin_confs.nvim_dap"
          --
-local dap = require('dap')
-dap.adapters.lldb = {
-  type = 'executable',
-  command = 'D:/ftarroux/scoop/apps/llvm/current/bin/lldb-vscode', -- adjust as needed
-  name = "lldb"
-}
-local dap = require('dap')
-dap.configurations.cpp = {
-  {
-    name = "Launch",
-    type = "lldb",
-    request = "launch",
-    -- program = function()
-    --   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    -- end,
-    program = "${workspaceFolder}/build/bin/Debug/MATISSE.exe",
-    cwd = '${workspaceFolder}',
-    stopOnEntry = true,
-    args = {},
+         local dap = require "dap"
+         dap.adapters.lldb = {
+            type = "executable",
+            command = "D:/ftarroux/scoop/apps/llvm/current/bin/lldb-vscode", -- adjust as needed
+            name = "lldb",
+         }
+         local dap = require "dap"
+         dap.configurations.cpp = {
+            {
+               name = "Launch",
+               type = "lldb",
+               request = "launch",
+               -- program = function()
+               --   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+               -- end,
+               program = "${workspaceFolder}/build/bin/Debug/MATISSE.exe",
+               cwd = "${workspaceFolder}",
+               stopOnEntry = true,
+               args = {},
 
-    -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
-    --
-    --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-    --
-    -- Otherwise you might get the following error:
-    --
-    --    Error on launch: Failed to attach to the target process
-    --
-    -- But you should be aware of the implications:
-    -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
-    runInTerminal = false,
-  },
-}
-dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp
-
-
+               -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+               --
+               --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+               --
+               -- Otherwise you might get the following error:
+               --
+               --    Error on launch: Failed to attach to the target process
+               --
+               -- But you should be aware of the implications:
+               -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+               runInTerminal = false,
+            },
+         }
+         dap.configurations.c = dap.configurations.cpp
+         dap.configurations.rust = dap.configurations.cpp
       end,
    }
    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
@@ -474,7 +473,7 @@ dap.configurations.rust = dap.configurations.cpp
   }
 } ]]
    use { "simrat39/symbols-outline.nvim" }
-    use {'stevearc/aerial.nvim'}
+   use { "stevearc/aerial.nvim" }
    use {
       "b3nj5m1n/kommentary",
       config = function()
@@ -824,7 +823,7 @@ require("telescope").load_extension "neovim-session-manager"
          vim.cmd [[let g:devdocs_filetype_map = {
     \   'c': 'cpp'}
     ]]
-     vim.api.nvim_set_keymap("n", "<leader>nh", ":DevDocsUnderCursor<cr>",{})
+         vim.api.nvim_set_keymap("n", "<leader>nh", ":DevDocsUnderCursor<cr>", {})
       end,
    }
    use { "ggandor/lightspeed.nvim", config = function() end } --map f and s, little useles
@@ -876,16 +875,45 @@ require("telescope").load_extension "neovim-session-manager"
          map("t", "ç", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
       end,
    }
-   use{'kdheepak/lazygit.nvim'}
-   use{'dstein64/vim-startuptime'}
---
-  use({
-          "windwp/windline.nvim",
-          config = function()
-                  require("wlsample.evil_line")
-                  require("wlfloatline").setup()
-          end,
-  })
+   use { "kdheepak/lazygit.nvim" }
+   use { "dstein64/vim-startuptime" }
+   --
+   use {
+      "windwp/windline.nvim",
+      config = function()
+         require "wlsample.evil_line"
+         require("wlfloatline").setup()
+      end,
+   }
+   use {
+      "nvim-neorg/neorg",
+
+      after = "nvim-cmp",
+      config = function()
+         require("neorg").setup {
+            -- Tell Neorg what modules to load
+            load = {
+               ["core.defaults"] = {}, -- Load all the default modules
+               ["core.norg.concealer"] = {}, -- Allows for use of icons
+               ["core.norg.dirman"] = { -- Manage your directories with Neorg
+                  config = {
+                     workspaces = {
+                        my_workspace = "~/neorg",
+                     },
+                  },
+               },
+               ["core.norg.completion"] = {
+                  config = {
+                     engine = "nvim-cmp", -- We current support nvim-compe and nvim-cmp only
+                  },
+               },
+            },
+         }
+      end,
+      requires = "nvim-lua/plenary.nvim",
+   }
+   -- use{"oberblastmeister/neuron.nvim"}
+   -- use{"funorpain/vim-cpplint"}
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
