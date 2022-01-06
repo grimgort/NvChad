@@ -24,6 +24,7 @@ hooks.add("setup_mappings", function(map)
    -- vim.api.nvim_set_keymap("n", "<leader>cc", "gg0vG$d", opt) -- example to delete the buffer
    local opt = {}
    local opts = {}
+   vim.api.nvim_set_keymap("n", "<leader>wn", ":edit ~/todo.norg<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>=", ":edit ~/todo.txt<cr>", opt)
    vim.api.nvim_set_keymap("i", "é", "é", opt)
    vim.api.nvim_set_keymap("i", "^", "^", opt)
