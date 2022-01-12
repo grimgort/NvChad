@@ -11,9 +11,9 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 -- To use this file, copy the strucutre of `core/default_config.lua`,
 -- examples of setting relative number & changing theme:
 
--- M.options = {
---    relativenumber = true,
--- }
+M.options = {
+   -- cmdheight= 2,
+}
 
 M.ui = {
   -- theme = "uwu"
@@ -177,6 +177,7 @@ M.plugins = {
      dashboard = "custom.plugin_confs.dashboard",
      -- indent_blankline = "custom.plugin_confs.indent_blankline",
      -- feline = "custom.plugin_confs.feline"
+     signature = "custom.plugin_confs.lsp_signature"
    },
 }
 

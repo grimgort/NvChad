@@ -34,16 +34,16 @@ hooks.add("setup_mappings", function(map)
    -- vim.api.nvim_set_keymap("n", " go", ":Gina log --graph<cr>", opt)
    vim.api.nvim_set_keymap("n", " gp", ":Git pull<cr>", opt)
    vim.api.nvim_set_keymap("n", " g*", ":Git push<cr>", opt)
-   vim.api.nvim_set_keymap("n", "ee", "<cmd>HopChar1<cr>", opt)
-   vim.api.nvim_set_keymap("n", "ej", "<cmd>HopLineStartAC<cr>", opt)
-   vim.api.nvim_set_keymap("n", "el", "<cmd>HopWordAC<cr>", opt)
-   vim.api.nvim_set_keymap("n", "ek", "<cmd>HopLineStartBC<cr>", opt)
-   vim.api.nvim_set_keymap("n", "eh", "<cmd>HopWordBC<cr>", opt)
-   vim.api.nvim_set_keymap("v", "ee", "<cmd>HopChar1<cr>", opt)
-   vim.api.nvim_set_keymap("v", "ej", "<cmd>HopLineStartAC<cr>", opt)
-   vim.api.nvim_set_keymap("v", "el", "<cmd>HopWordAC<cr>", opt)
-   vim.api.nvim_set_keymap("v", "ek", "<cmd>HopLineStartBC<cr>", opt)
-   vim.api.nvim_set_keymap("v", "eh", "<cmd>HopWordBC<cr>", opt)
+   -- vim.api.nvim_set_keymap("n", "ee", "<cmd>HopChar1<cr>", opt)
+   -- vim.api.nvim_set_keymap("n", "ej", "<cmd>HopLineStartAC<cr>", opt)
+   -- vim.api.nvim_set_keymap("n", "el", "<cmd>HopWordAC<cr>", opt)
+   -- vim.api.nvim_set_keymap("n", "ek", "<cmd>HopLineStartBC<cr>", opt)
+   -- vim.api.nvim_set_keymap("n", "eh", "<cmd>HopWordBC<cr>", opt)
+   -- vim.api.nvim_set_keymap("v", "ee", "<cmd>HopChar1<cr>", opt)
+   -- vim.api.nvim_set_keymap("v", "ej", "<cmd>HopLineStartAC<cr>", opt)
+   -- vim.api.nvim_set_keymap("v", "el", "<cmd>HopWordAC<cr>", opt)
+   -- vim.api.nvim_set_keymap("v", "ek", "<cmd>HopLineStartBC<cr>", opt)
+   -- vim.api.nvim_set_keymap("v", "eh", "<cmd>HopWordBC<cr>", opt)
 
    vim.api.nvim_set_keymap("n", " cd", ":cd %:p:h<cr>", opt)
    vim.api.nvim_set_keymap("n", " gf", ":Telescope git_files<cr>", opt)
@@ -226,14 +226,14 @@ hooks.add("install_plugins", function(use)
       "max397574/better-escape.nvim",
       event = "InsertEnter",
    } ]]
-   use {
-      "phaazon/hop.nvim",
-      as = "hop",
-      config = function()
-         -- you can configure Hop the way you like here; see :h hop-config
-         require("hop").setup { keys = "etovxqpdygfblzhckisuran" }
-      end,
-   }
+   -- use {
+   --    "phaazon/hop.nvim",
+   --    as = "hop",
+   --    config = function()
+   --       -- you can configure Hop the way you like here; see :h hop-config
+   --       require("hop").setup { keys = "etovxqpdygfblzhckisuran" }
+   --    end,
+   -- } -- replaced by lightspeed
    use {
       "folke/which-key.nvim",
       config = function()
@@ -400,7 +400,7 @@ hooks.add("install_plugins", function(use)
    use {
       "blackCauldron7/surround.nvim",
       config = function()
-         require("surround").setup { mappings_style = "surround" }
+         require("surround").setup { mappings_style = "sandwich", prefix = "e" }
       end,
    }
    use {
@@ -805,9 +805,9 @@ require("telescope").load_extension "neovim-session-manager"
    use {
       "Shougo/echodoc.vim",
       config = function()
-         vim.g.echodoc_type = "popup"
+         -- vim.g.echodoc_type = "popup"
          vim.g.echodoc_enable_at_startup = 1
-         vim.api.nvim_command "set noshowmode"
+         -- vim.api.nvim_command "set noshowmode"
       end,
    }
    use {
@@ -915,6 +915,12 @@ require("telescope").load_extension "neovim-session-manager"
    }
    -- use{"oberblastmeister/neuron.nvim"}
    -- use{"funorpain/vim-cpplint"}
+   -- use {
+   --    "ray-x/lsp_signature.nvim",
+   --    config = function()
+   --       require("lsp_signature").setup()
+   --    end,
+   -- }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
