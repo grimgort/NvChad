@@ -24,7 +24,8 @@ hooks.add("setup_mappings", function(map)
    -- vim.api.nvim_set_keymap("n", "<leader>cc", "gg0vG$d", opt) -- example to delete the buffer
    local opt = {}
    local opts = {}
-   vim.api.nvim_set_keymap("n", "<leader>wn", ":edit ~/todo.norg<cr>", opt)
+   vim.api.nvim_set_keymap("n", "_", "@", opt)
+   vim.api.nvim_set_keymap("n", "<leader>wn", ":edit ~/NEORG/index.norg<cr>", opt)
    vim.api.nvim_set_keymap("n", "<leader>=", ":edit ~/todo.txt<cr>", opt)
    vim.api.nvim_set_keymap("i", "é", "é", opt)
    vim.api.nvim_set_keymap("i", "^", "^", opt)
@@ -121,7 +122,8 @@ hooks.add("setup_mappings", function(map)
    )
    vim.api.nvim_set_keymap("n", "<leader>nt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
    vim.api.nvim_set_keymap("n", "<leader>nr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-   vim.api.nvim_set_keymap("n", "<leader>nz", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+   -- vim.api.nvim_set_keymap("n", "<leader>nz", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+   vim.api.nvim_set_keymap("n", "<leader>nz", "<cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor())<CR>", opts)
    vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
    vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 
@@ -560,10 +562,17 @@ end} --don't work with nvim-treesitter]]
       "hrsh7th/cmp-path",
       after = "cmp-nvim-lsp",
    } ]]
+-- use 'hrsh7th/cmp-nvim-lsp'
+-- use 'hrsh7th/cmp-buffer'
+-- use 'hrsh7th/cmp-path'
    use {
       "hrsh7th/cmp-calc",
       after = "cmp-nvim-lsp",
    }
+   use{ 
+     "hrsh7th/cmp-cmdline",
+      after = "cmp-nvim-lsp",
+    }
    use {
       "sudormrfbin/cheatsheet.nvim",
 
@@ -656,7 +665,7 @@ end} --don't work with nvim-treesitter]]
    }
    use {
       "GustavoKatel/telescope-asynctasks.nvim",
-      after = "telescope.nvim",
+      -- after = "telescope.nvim",
       config = function()
          require("telescope").load_extension "asynctasks"
       end,
@@ -886,6 +895,7 @@ require("telescope").load_extension "neovim-session-manager"
          require("wlfloatline").setup()
       end,
    }
+   use {"nvim-neorg/neorg-telescope"}
    use {
       "nvim-neorg/neorg",
 
@@ -895,6 +905,13 @@ require("telescope").load_extension "neovim-session-manager"
             -- Tell Neorg what modules to load
             load = {
                ["core.defaults"] = {}, -- Load all the default modules
+               -- ["core.integrations.telescope"] = {},
+               -- ["core.keybinds"] = { -- Configure core.keybinds
+               --    config = {
+               --       default_keybinds = true, -- Generate the default keybinds
+               --       neorg_leader = "<Leader>wo", -- This is the default if unspecified
+               --    },
+               -- },
                ["core.norg.concealer"] = {}, -- Allows for use of icons
                ["core.norg.dirman"] = { -- Manage your directories with Neorg
                   config = {
@@ -912,19 +929,20 @@ require("telescope").load_extension "neovim-session-manager"
          }
       end,
       requires = "nvim-lua/plenary.nvim",
+      -- requires = "nvim-neorg/neorg-telescope",
    }
 
-use {
-  "folke/todo-comments.nvim",
-  requires = "nvim-lua/plenary.nvim",
-  config = function()
-    require("todo-comments").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-  end
-}
+   use {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+         require("todo-comments").setup {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+         }
+      end,
+   }
    -- use{"oberblastmeister/neuron.nvim"}
    -- use{"funorpain/vim-cpplint"}
    -- use {
